@@ -1,0 +1,4 @@
+C:\Projects\Coop\SCF\bin\Coop.dll
+C:\Projects\Coop\SCF\bin\Coop.pdb
+C:\Projects\Coop\SCF\obj\Debug\Coop.dll
+C:\Projects\Coop\SCF\obj\Debug\Coop.pdb
