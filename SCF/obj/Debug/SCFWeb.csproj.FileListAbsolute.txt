@@ -2,3 +2,7 @@ C:\Projects\Coop\SCF\bin\Coop.dll
 C:\Projects\Coop\SCF\bin\Coop.pdb
 C:\Projects\Coop\SCF\obj\Debug\Coop.dll
 C:\Projects\Coop\SCF\obj\Debug\Coop.pdb
+C:\Users\kanderson\Documents\GitHub\SCF\SCF\bin\Coop.dll
+C:\Users\kanderson\Documents\GitHub\SCF\SCF\bin\Coop.pdb
+C:\Users\kanderson\Documents\GitHub\SCF\SCF\obj\Debug\Coop.dll
+C:\Users\kanderson\Documents\GitHub\SCF\SCF\obj\Debug\Coop.pdb

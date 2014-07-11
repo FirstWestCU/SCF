@@ -6,13 +6,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace Coop.AppCode
+namespace Coop
 {
     public class CreditUnion
     {
         private int id;
 
-        public CreditUnion(int id)
+        public void LoadDetails(int id)
         {
             this.id = id;
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
@@ -26,6 +26,7 @@ namespace Coop.AppCode
                     while (reader.Read())
                     {
                         Name = reader["Name"].ToString();
+                        Abbr = reader["Abbr"].ToString();
                         Website = reader["Website"].ToString();
                         Latitude = Convert.ToDouble(reader["Latitude"]);
                         Longitude = Convert.ToDouble(reader["Longitude"]);
@@ -45,6 +46,12 @@ namespace Coop.AppCode
         }
 
         public string Name
+        {
+            get;
+            set;
+        }
+
+        public string Abbr
         {
             get;
             set;
