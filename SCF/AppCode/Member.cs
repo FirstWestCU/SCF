@@ -44,9 +44,16 @@ namespace Coop
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("", conn))
+                using (SqlCommand cmd = new SqlCommand("UpdateMemberAccessHistory", conn))
                 {
-
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MemberID", id);
+                    cmd.Parameters.AddWithValue("@Latitude", latitude);
+                    cmd.Parameters.AddWithValue("@Longitude", longitude);
+                    cmd.Parameters.AddWithValue("@IP", ip);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
                 }
             }
         }
