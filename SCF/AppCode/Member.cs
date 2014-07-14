@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Coop
 {
-    public class User
+    public class Member
     {
         private int id;
 
@@ -17,7 +17,7 @@ namespace Coop
             this.id = id;
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("GetUserDetails", conn))
+                using (SqlCommand cmd = new SqlCommand("GetMemberDetails", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ID", id);
@@ -27,8 +27,8 @@ namespace Coop
                     {
                         Hash = reader["Hash"].ToString();
                         Name = reader["Name"].ToString();
-                        Email = reader["Email"].ToString();
-                        AccessLevel = (reader["AccessLevel"] != DBNull.Value) ? Convert.ToInt32(reader["AccessLevel"]) : 0;
+                        Latitude = Convert.ToDouble(reader["Latitude"]);
+                        Longitude = Convert.ToDouble(reader["Longitude"]);
                         int creditUnionID = Convert.ToInt32(reader["CreditUnionID"]);
                         CreditUnion cu = new CreditUnion();
                         cu.LoadDetails(creditUnionID);
@@ -36,6 +36,17 @@ namespace Coop
                     }
                     reader.Close();
                     conn.Close();
+                }
+            }
+        }
+
+        public void UpdateAccessHistory(double latitude, double longitude, string ip)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("", conn))
+                {
+
                 }
             }
         }
@@ -60,19 +71,19 @@ namespace Coop
             set;
         }
 
-        public string Email
-        {
-            get;
-            set;
-        }
-
         public CreditUnion CU
         {
             get;
             set;
         }
 
-        public int AccessLevel
+        public double Latitude
+        {
+            get;
+            set;
+        }
+
+        public double Longitude
         {
             get;
             set;
