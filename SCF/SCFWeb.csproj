@@ -1157,6 +1157,7 @@
     <Content Include="Services\CreditUnionService.asmx" />
     <Content Include="Services\MemberService.asmx" />
     <Content Include="Services\UserService.asmx" />
+    <Content Include="Services\VotingService.asmx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1168,6 +1169,7 @@
   <ItemGroup>
     <Compile Include="AppCode\CreditUnion.cs" />
     <Compile Include="AppCode\HashGenerator.cs" />
+    <Compile Include="AppCode\KeyValueStruct.cs" />
     <Compile Include="AppCode\Member.cs" />
     <Compile Include="AppCode\Project.cs" />
     <Compile Include="AppCode\User.cs" />
@@ -1182,6 +1184,10 @@
     </Compile>
     <Compile Include="Services\UserService.asmx.cs">
       <DependentUpon>UserService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\VotingService.asmx.cs">
+      <DependentUpon>VotingService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

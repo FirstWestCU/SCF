@@ -4,3 +4,8 @@ C:\Users\kanderson\Documents\GitHub\SCF\SCF\bin\BCrypt.dll
 C:\Users\kanderson\Documents\GitHub\SCF\SCF\obj\Debug\Coop.dll
 C:\Users\kanderson\Documents\GitHub\SCF\SCF\obj\Debug\Coop.pdb
 C:\Users\kanderson\Documents\GitHub\SCF\SCF\obj\Debug\SCFWeb.csprojResolveAssemblyReference.cache
+C:\Users\nwelch\Desktop\New\SCF\SCF\obj\Debug\Coop.dll
+C:\Users\nwelch\Desktop\New\SCF\SCF\obj\Debug\Coop.pdb
+C:\Users\nwelch\Desktop\New\SCF\SCF\bin\Coop.dll
+C:\Users\nwelch\Desktop\New\SCF\SCF\bin\Coop.pdb
+C:\Users\nwelch\Desktop\New\SCF\SCF\bin\BCrypt.dll

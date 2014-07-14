@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Configuration;
 
-namespace Coop.Services
+namespace Coop
 {
     /// <summary>
     /// Summary description for MemberService
