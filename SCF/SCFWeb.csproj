@@ -1156,6 +1156,7 @@
     <Content Include="projects.aspx" />
     <Content Include="Services\CreditUnionService.asmx" />
     <Content Include="Services\MemberService.asmx" />
+    <Content Include="Services\ProjectService.asmx" />
     <Content Include="Services\UserService.asmx" />
     <Content Include="Services\VotingService.asmx" />
     <Content Include="Web.config" />
@@ -1172,6 +1173,8 @@
     <Compile Include="AppCode\KeyValueStruct.cs" />
     <Compile Include="AppCode\Member.cs" />
     <Compile Include="AppCode\Project.cs" />
+    <Compile Include="AppCode\ProjectFAQ.cs" />
+    <Compile Include="AppCode\ProjectUpdate.cs" />
     <Compile Include="AppCode\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CreditUnionService.asmx.cs">
@@ -1181,6 +1184,13 @@
     <Compile Include="Services\MemberService.asmx.cs">
       <DependentUpon>MemberService.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\ProjectService.asmx.cs">
+      <DependentUpon>ProjectService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\ShowProjectImage.ashx.cs">
+      <DependentUpon>ShowProjectImage.ashx</DependentUpon>
     </Compile>
     <Compile Include="Services\UserService.asmx.cs">
       <DependentUpon>UserService.asmx</DependentUpon>
@@ -1364,6 +1374,7 @@
     <None Include="assets\plugins\vector-map\build.sh" />
     <None Include="assets\plugins\vector-map\jvectormap.jquery.json" />
     <None Include="assets\plugins\vector-map\README.md" />
+    <Content Include="Services\ShowProjectImage.ashx" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -97,7 +97,7 @@ namespace Coop
         /// <summary>
         /// Sets a user's access level
         /// </summary>
-        /// <param name="userHash">The currently logged on user's hash value. For now, this parameter is a dummy parameter.</param>
+        /// <param name="userHash">The hash of the currently logged on user. For future use in confirming user access</param>
         /// <param name="userID">The ID of the user to update.</param>
         /// <param name="newAccessLevel">The access level to grant.</param>
         /// <returns>The updated user object.</returns>

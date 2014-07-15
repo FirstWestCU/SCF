@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Coop
 {
@@ -9,9 +12,31 @@ namespace Coop
     {
         private int id;
 
-        public Project(int id)
+        public void LoadDetails(int id)
         {
             this.id = id;
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetProjectDetails", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Name = reader["Name"].ToString();
+                        Description = reader["Description"].ToString();
+                        Website = reader["Website"].ToString();
+                        int creditUnionID = Convert.ToInt32(reader["CreditUnionID"]);
+                        CreditUnion cu = new CreditUnion();
+                        cu.LoadDetails(creditUnionID);
+                        ProposedBy = cu;
+                    }
+                    reader.Close();
+                    conn.Close();
+                }
+            }
         }
 
         public int ID
