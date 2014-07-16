@@ -27,7 +27,27 @@ namespace Coop
         public Donation AddDonation(string userHash, int creditUnion, string title, int category, int onclock, int offclock, int dollars, double latitude, double longitude, string additionalInfo, DateTime donationDate, int userID)
         {
             int newDonationID = 0;
-            //TODO: Insert into Database
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("InsertDonation", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CreditUnionID", creditUnion);
+                    cmd.Parameters.AddWithValue("@Title", title);
+                    cmd.Parameters.AddWithValue("@CategoryID", category);
+                    cmd.Parameters.AddWithValue("@OnClockHours", onclock);
+                    cmd.Parameters.AddWithValue("@OffClockHours", offclock);
+                    cmd.Parameters.AddWithValue("@Dollars", dollars);
+                    cmd.Parameters.AddWithValue("@Latitude", latitude);
+                    cmd.Parameters.AddWithValue("@Longitude", longitude);
+                    cmd.Parameters.AddWithValue("@AdditionalInfo", additionalInfo);
+                    cmd.Parameters.AddWithValue("@DonationDate", donationDate);
+                    cmd.Parameters.AddWithValue("@UserID", userID);
+                    conn.Open();
+                    newDonationID = Convert.ToInt32(cmd.ExecuteScalar());
+                    conn.Close();
+                }
+            }
 
             Donation donation = new Donation();
             donation.LoadDetails(newDonationID);
@@ -38,14 +58,46 @@ namespace Coop
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void DeleteDonation(string userHash, int id)
         {
-            //TODO: Delete from Database
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("DeleteDonation", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public Donation UpdateDonation(string userHash, int id, int creditUnion, string title, int category, int onclock, int offclock, int dollars, double latitude, double longitude, string additionalInfo, DateTime donationDate)
+        public Donation UpdateDonation(string userHash, int id, int creditUnion, string title, int category, int onclock, int offclock, int dollars, double latitude, double longitude, string additionalInfo, DateTime donationDate, int userID)
         {
-            //TODO: Update Database
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateDonation", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@CreditUnionID", creditUnion);
+                    cmd.Parameters.AddWithValue("@Title", title);
+                    cmd.Parameters.AddWithValue("@CategoryID", category);
+                    cmd.Parameters.AddWithValue("@OnClockHours", onclock);
+                    cmd.Parameters.AddWithValue("@OffClockHours", offclock);
+                    cmd.Parameters.AddWithValue("@Dollars", dollars);
+                    cmd.Parameters.AddWithValue("@Latitude", latitude);
+                    cmd.Parameters.AddWithValue("@Longitude", longitude);
+                    cmd.Parameters.AddWithValue("@AdditionalInfo", additionalInfo);
+                    cmd.Parameters.AddWithValue("@DonationDate", donationDate);
+                    cmd.Parameters.AddWithValue("@UserID", userID);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+
 
             Donation donation = new Donation();
             donation.LoadDetails(id);
@@ -66,7 +118,25 @@ namespace Coop
         public List<Donation> GetDonationsByCreditUnion(int creditUnion)
         {
             List<Donation> donations = new List<Donation>();
-            //TODO: Retrieve list of donations
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetDonationsByCreditUnion", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CreditUnionID", creditUnion);
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int donationID = Convert.ToInt32(reader["ID"]);
+                        Donation d = new Donation();
+                        d.LoadDetails(donationID);
+                        donations.Add(d);
+                    }
+                    reader.Close();
+                    conn.Close();
+                }
+            }
 
             return donations;
         }
@@ -76,7 +146,25 @@ namespace Coop
         public List<Donation> GetDonationsByCategory(int category)
         {
             List<Donation> donations = new List<Donation>();
-            //TODO: Retrieve list of donations
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetDonationsByCategory", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CategoryID", category);
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int donationID = Convert.ToInt32(reader["ID"]);
+                        Donation d = new Donation();
+                        d.LoadDetails(donationID);
+                        donations.Add(d);
+                    }
+                    reader.Close();
+                    conn.Close();
+                }
+            }
 
             return donations;
         }
@@ -86,7 +174,26 @@ namespace Coop
         public List<Donation> GetDonationsByDate(DateTime start, DateTime end)
         {
             List<Donation> donations = new List<Donation>();
-            //TODO: Retrieve list of donations
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetDonationsByDate", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StartDate", start);
+                    cmd.Parameters.AddWithValue("@EndDate", end);
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int donationID = Convert.ToInt32(reader["ID"]);
+                        Donation d = new Donation();
+                        d.LoadDetails(donationID);
+                        donations.Add(d);
+                    }
+                    reader.Close();
+                    conn.Close();
+                }
+            }
 
             return donations;
         }
