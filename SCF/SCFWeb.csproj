@@ -1155,6 +1155,7 @@
     <Content Include="registration.aspx" />
     <Content Include="projects.aspx" />
     <Content Include="Services\CreditUnionService.asmx" />
+    <Content Include="Services\DonationService.asmx" />
     <Content Include="Services\MemberService.asmx" />
     <Content Include="Services\ProjectService.asmx" />
     <Content Include="Services\UserService.asmx" />
@@ -1169,6 +1170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\CreditUnion.cs" />
+    <Compile Include="AppCode\Donation.cs" />
     <Compile Include="AppCode\HashGenerator.cs" />
     <Compile Include="AppCode\KeyValueStruct.cs" />
     <Compile Include="AppCode\Member.cs" />
@@ -1179,6 +1181,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CreditUnionService.asmx.cs">
       <DependentUpon>CreditUnionService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\DonationService.asmx.cs">
+      <DependentUpon>DonationService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Services\MemberService.asmx.cs">
