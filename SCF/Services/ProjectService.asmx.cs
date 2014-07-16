@@ -398,5 +398,49 @@ namespace Coop
                 }
             }
         }
+
+        /// <summary>
+        /// Activates a project in the database
+        /// </summary>
+        /// <param name="userHash">The hash of the currently logged on user. For future use in confirming user access</param>
+        /// <param name="id">The project ID to ACTIVATE</param>
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void ActivateProject(string userHash, int id)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("ActivateProject", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deactivates a project in the database
+        /// </summary>
+        /// <param name="userHash">The hash of the currently logged on user. For future use in confirming user access</param>
+        /// <param name="id">The project ID to DEACTIVATE</param>
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void DeactivateProject(string userHash, int id)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("DeactivateProject", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
     }
 }
