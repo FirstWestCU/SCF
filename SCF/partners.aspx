@@ -1,9 +1,7 @@
 <%@ Page Language="C#" %>
 <!-- #include file="includes/htmlOpen.html" -->
+<div class="wrapper">
 <!-- #include file="includes/header.html" -->
-
-
-
 
 
     <!--=== Content Part ===-->
@@ -19,13 +17,16 @@
 
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img class="img-responsive" src="assets/img/team/team.jpg" alt="">
+                        <img class="img-responsive" src="assets/img/scf/ValleyFirst-logo.png" alt="">
+                    </div>
+                     <div class="item">
+                        <img class="img-responsive" src="assets/img/scf/AirAcademyLogo.png" alt="">
                     </div>
                     <div class="item">
-                        <img class="img-responsive" src="assets/img/team/team3.jpg" alt="">
+                        <img class="img-responsive" src="assets/img/scf/EnderbyLogo.jpg" alt="">
                     </div>
                     <div class="item">
-                        <img class="img-responsive" src="assets/img/team/team2.jpg" alt="">
+                        <img class="img-responsive" src="assets/img/scf/Envision-logo.png" alt="">
                     </div>
                 </div>
 
@@ -41,62 +42,7 @@
         </div>
         <!-- End About Sldier -->
 
-        <!-- About Description -->
-        <div class="title-box-v2">
-            <h2>About <span class="color-green">Unify</span></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
 
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <img alt="" src="assets/img/main/6.jpg" class="img-responsive margin-bottom-20">
-                    </div>
-                    <div class="col-sm-8">
-                        <p>Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone.</p>
-                        <ul class="list-unstyled margin-bottom-20">
-                            <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida</li>
-                            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-                            <li><i class="fa fa-check color-green"></i> Responsive Bootstrap Template</li>
-                            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-                        </ul>                    
-                    </div>
-                </div>
-
-                <blockquote class="hero-unify">
-                    <p>Award winning digital agency. We bring a personal and effective approach to every project we work on, which is why. Unify is an incredibly beautiful responsive Bootstrap Template for corporate professionals.</p>
-                    <small>CEO, Jack Bour</small>
-                </blockquote>
-            </div><!--/col-md-8-->        
-
-            <div class="col-md-4">
-                <h3 class="heading-xs no-top-space">Web Design <span class="pull-right">88%</span></h3>
-                <div class="progress progress-u progress-xs">
-                    <div style="width: 88%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="88" role="progressbar" class="progress-bar progress-bar-u">
-                    </div>
-                </div>
-
-                <h3 class="heading-xs no-top-space">PHP/WordPress <span class="pull-right">76%</span></h3>
-                <div class="progress progress-u progress-xs">
-                    <div style="width: 76%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="76" role="progressbar" class="progress-bar progress-bar-u">
-                    </div>
-                </div>
-
-                <h3 class="heading-xs no-top-space">HTML/CSS <span class="pull-right">97%</span></h3>
-                <div class="progress progress-u progress-xs">
-                    <div style="width: 97%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="97" role="progressbar" class="progress-bar progress-bar-u">
-                    </div>
-                </div>
-
-                <h3 class="heading-xs no-top-space">Web Animation <span class="pull-right">68%</span></h3>
-                <div class="progress progress-u progress-xs">
-                    <div style="width: 68%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="68" role="progressbar" class="progress-bar progress-bar-u">
-                    </div>
-                </div>
-            </div><!--/col-md-4-->
-        </div> 
-        <!-- About Description -->
     </div>    
     <!--=== End Content Part ===-->
 
@@ -140,7 +86,7 @@
         </div><!--/container--> 
     </div>      
     <!--=== End Parallax About Block ===-->
-
+</div><!--/End Wrapepr-->
    
 
 
