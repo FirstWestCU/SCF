@@ -1180,6 +1180,7 @@
     <Compile Include="AppCode\ProjectFAQ.cs" />
     <Compile Include="AppCode\ProjectUpdate.cs" />
     <Compile Include="AppCode\User.cs" />
+    <Compile Include="AppCode\VotingWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CategoryService.asmx.cs">
       <DependentUpon>CategoryService.asmx</DependentUpon>

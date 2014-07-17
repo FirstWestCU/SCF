@@ -35,23 +35,119 @@ namespace Coop
             List<KeyValueStruct> votes = new List<KeyValueStruct>();
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
             {
-                using(SqlCommand cmd = new SqlCommand("GetProjectVoteCounts",conn))
+                using (SqlCommand cmd = new SqlCommand("GetProjectVoteCounts", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@VotingWindowID",votingWindowID);
+                    cmd.Parameters.AddWithValue("@VotingWindowID", votingWindowID);
                     conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
-                    if(reader.HasRows)
+                    if (reader.HasRows)
                     {
-                        while(reader.Read())
+                        while (reader.Read())
                         {
-                            votes.Add(new KeyValueStruct(Convert.ToInt32(reader["ProjectID"]),Convert.ToInt32(reader["Count"])));
+                            votes.Add(new KeyValueStruct(Convert.ToInt32(reader["ProjectID"]), Convert.ToInt32(reader["Count"])));
                         }
                         reader.Close();
                     }
                 }
             }
             return votes;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<KeyValueStruct> SetVote(int votingWindowID, int projectID, int memberID, string memberHash)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using(SqlCommand cmd = new SqlCommand("UpsertVote",conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@VotingWindowID",votingWindowID);
+                    cmd.Parameters.AddWithValue("@ProjectID", projectID);
+                    cmd.Parameters.AddWithValue("@MemberID", memberID);
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+            }
+            return GetProjectVotes(votingWindowID);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public VotingWindow GetCurrentVotingWindow()
+        {
+            VotingWindow votingWindow = new VotingWindow();
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetCurrentVotingWindow", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        votingWindow.ID = Convert.ToInt32(reader["ID"]);
+                        votingWindow.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                        votingWindow.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    }
+                    reader.Close();
+                }
+            }
+            return votingWindow;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public VotingWindow CreateVotingWindow(DateTime startDate, DateTime endDate, string userHash)
+        {
+            VotingWindow votingWindow = new VotingWindow();
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("InsertVotingWindow", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@startDate", startDate);
+                    cmd.Parameters.AddWithValue("@endDate", endDate);
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        votingWindow.ID = Convert.ToInt32(reader["ID"]);
+                        votingWindow.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                        votingWindow.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    }
+                    reader.Close();
+                }
+            }
+            return votingWindow;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public VotingWindow UpdateVotingWindow(DateTime startDate, DateTime endDate, int votingWindowID, string userHash)
+        {
+            VotingWindow votingWindow = new VotingWindow();
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCF"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateVotingWindow", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", votingWindowID);
+                    cmd.Parameters.AddWithValue("@startDate", startDate);
+                    cmd.Parameters.AddWithValue("@endDate", endDate);
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        votingWindow.ID = Convert.ToInt32(reader["ID"]);
+                        votingWindow.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                        votingWindow.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    }
+                    reader.Close();
+                }
+            }
+            return votingWindow;
         }
     }
 }
