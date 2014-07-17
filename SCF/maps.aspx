@@ -69,36 +69,35 @@
     "45600, Menholm Road, Chilliwak, BC, V2P1P7, Canada",
     "P.O. Box 998, 895 Third Avenue, Hope, BC, V0X1L0, Canada",
     "#8-22726, Dewdney Trunk Road, Maple Ridge, BC,	V2X3K2, Canada",
-
-"Hope Brigade Days,	Box 1702, Hope, BC, V0X1L0, Canada",
-"Hope Community Services Society	Box 74- 434 Wallace Street	Hope	V0X 1L0
-"Kitimat Concert Series	P.O Box 99	Kitimat	V8C 2G6
-"Kitimat Food Bank	14 Morgan St	Kitimat	V8C 1J3
-"Kiwanis Fraser Valley Music Festival	32305 Badger Ave	Mission	V2V 5H8
-"Kwantlen Polytechnic University	12666 72nd Ave	Surrey	V3W 2M8
-"Ladner Village Quilt Walk & Classic Car Show (Ladner Business Association)	PO Box 15 STN MAIN	Delta	V4K 3N5
-"Langley Christmas Bureau	20560 Fraser Highway 	Langley	V3A 4G2
-"Langley Environmental Partners Society	201, 4839 221 Street	Langley	V3A 2P1
-"Langley Food Bank	5768 203 St.,	Langley	V3A 1W3 	 	 
-"Langley Montessori School	21488 Old Yale Road	Langley	V3A 4M8
-"Langley RCMP	22180 - 48A Avenue	Langley	V3A 8B7
-"Langley School District Foundation	4875 - 222nd Street 	Langley	V3A 3Z7
-"Langley Senior Resources Society	20605 51B Avenue	Langley	V3A 9H1
-"Maples Discovery Gardens Co-op	7743 200th St	Langley	V2Y 1S3
-"Mission Community Services Society/Christmas Bureau	32646 Logan Ave	Mission 	V2V 6C7 
-"Mission Heritage Association	PO Box 3341	Mission 	V2V 4J5
-"Peninsula Community Foundation	250- 2411 160th st	Surrey	V3S 0C8 
-"PowerPlay Strategies	PO Box 45034, Ocean Park RPO	Surrey	V4A 9L1
-"Progressive Intercultural Community Services	#205 12725 80th Avenue 	Surrey	V3W 3A6 	 	 
-"Ridge Meadows Hospital Foundation	11666 Laity Street, Box 5000	Maple Ridge	V2X 7G5
-"Run for Water Society	204-2190 west railway st	Abbotsford	V2S 2E2
-"SAINTS Rescue	33860 Dlugosh Avenue	Mission 	V2V 6B2
-"Salvation Army, Care and Share Centre	45746 Yale Rd. 	Chilliwack	V2P 2N5
-"Salvation Army, Caring Place	22188 Lougheed Hwy	Maple Ridge	V2X 2S8
-"Salvation Army, Gateway of Hope	5787 Langley Bypass	Langley	V3A 0A9
-"Salvation Army, White Rock	15417 Roper Ave,	White Rock	V4B 2G4
-"Seniors Come Share Society	15008 26th Avenue	Surrey	V4P 3H5
-"Share Family & Community Services Society	Top of Form
+    "Hope Brigade Days,	Box 1702, Hope, BC, V0X1L0, Canada",
+    "Hope Community Services Society, Box 74-434 Wallace Street, Hope, BC, V0X 1L0, Canada",
+    "Kitimat Concert Series, P.O Box 99, Kitimat, BC, V8C 2G6, Canada",
+    "Kitimat Food Bank,	14 Morgan St, Kitimat, BC, V8C 1J3, Canada",
+    "Kiwanis Fraser Valley Music Festival, 32305 Badger Ave, Mission, BC, V2V 5H8, Canada",
+    "Kwantlen Polytechnic University, 12666, 72nd Ave, Surrey, BC, V3W 2M8, Canada",
+    "Ladner Village Quilt Walk & Classic Car Show (Ladner Business Association), PO Box 15, STN MAIN, Delta, BC, V4K 3N5, Canada",
+    "Langley Christmas Bureau, 20560 Fraser Highway, Langley, BC, V3A 4G2, Canada",
+    "Langley Environmental Partners Society, 201, 4839 221 Street, Langley, BC,	V3A 2P1, Canada",
+    "Langley Food Bank,	5768 203 St., Langley, BC, V3A1W3",
+    "Langley Montessori School,	21488, Old Yale Road, Langley, BC, V3A4M8, Canada",
+    "Langley RCMP, 22180 - 48A Avenue, Langley, BC,	V3A8B7, Canada",
+    "Langley School District Foundation, 4875, 222nd Street, Langley, BC,V3A3Z7, Canada",
+    "Langley Senior Resources Society, 20605, 51B Avenue, Langley, BC, V3A9H1, Canada",
+    "Maples Discovery Gardens Co-op, 7743 200th St, Langley, BC, V2Y1S3, Canada",
+    "Mission Community Services Society/Christmas Bureau, 32646 Logan Ave, Mission, BC, V2V6C7, Canada", 
+    "Mission Heritage Association, PO Box 3341, Mission, BC, V2V 4J5, Canada",
+    "Peninsula Community Foundation, 250-2411 160th st, Surrey, BC,	V3S0C8, Canada", 
+    "PowerPlay Strategies, PO Box 45034, Ocean Park RPO, Surrey, BC, V4A9L1, Canada",
+    "Progressive Intercultural Community Services, #205 12725 80th Avenue, Surrey, BC, V3W3A6, Canada", 	 	 
+    "Ridge Meadows Hospital Foundation, 11666 Laity Street, Box 5000, Maple Ridge, BC, V2X7G5, Canada",
+    "Run for Water Society, 204-2190 west railway st, Abbotsford, BC, V2S2E2, Canada",
+    "SAINTS Rescue, 33860 Dlugosh Avenue, Mission, BC, V2V6B2, Canada",
+    "Salvation Army Care and Share Centre, 45746 Yale Rd, Chilliwack, BC, V2P2N5, Canada",
+    "Salvation Army, Caring Place, 22188 Lougheed Hwy, Maple Ridge, BC, V2X2S8, Canada",
+    "Salvation Army, Gateway of Hope, 5787 Langley Bypass, Langley, BC,	V3A0A9, Canada",
+    "Salvation Army, White Rock	15417 Roper Ave, White Rock, BC, V4B2G4, Canada",
+    "Seniors Come Share Society, 15008 26th Avenue, Surrey, BC, V4P3H5, Canada",
+    "Share Family & Community Services Society	Top of Form
 2615 Clarke Street
 Bottom of Form	Port Moody	Top of Form
 V3H 1Z4 

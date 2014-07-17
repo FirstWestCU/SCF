@@ -1,5 +1,0 @@
-C:\Projects\Coop\Coop\bin\Coop.dll
-C:\Projects\Coop\Coop\bin\Coop.pdb
-C:\Projects\Coop\Coop\obj\Debug\ResolveAssemblyReference.cache
-C:\Projects\Coop\Coop\obj\Debug\Coop.dll
-C:\Projects\Coop\Coop\obj\Debug\Coop.pdb

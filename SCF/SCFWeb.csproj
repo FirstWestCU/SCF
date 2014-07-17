@@ -296,12 +296,14 @@
     <Content Include="assets\img\posts\1.jpg" />
     <Content Include="assets\img\posts\2.jpg" />
     <Content Include="assets\img\posts\3.jpg" />
+    <Content Include="assets\img\scf\AirAcademyLogo.png" />
     <Content Include="assets\img\scf\Banner.png" />
     <Content Include="assets\img\scf\Boat.jpg" />
     <Content Include="assets\img\scf\BottleOcean.jpg" />
     <Content Include="assets\img\scf\Box.png" />
     <Content Include="assets\img\scf\Cancer-Research.jpg" />
     <Content Include="assets\img\scf\Enderby-logo.png" />
+    <Content Include="assets\img\scf\EnderbyLogo.jpg" />
     <Content Include="assets\img\scf\Envision-logo.png" />
     <Content Include="assets\img\scf\KidsSports.jpg" />
     <Content Include="assets\img\scf\Logo.png" />
