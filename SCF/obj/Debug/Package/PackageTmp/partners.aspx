@@ -17,13 +17,19 @@
 
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img class="img-responsive" src="assets/img/scf/ValleyFirst-logo.png" alt="">
+                        <img class="img-responsive" src="assets/img/scf/ValleyFirstLogo.png" alt="">
+                    </div>
+                     <div class="item">
+                        <img class="img-responsive" src="assets/img/scf/AirAcademyLogo.png" alt="">
                     </div>
                     <div class="item">
-                        <img class="img-responsive" src="assets/img/scf/Enderby-logo.png" alt="">
+                        <img class="img-responsive" src="assets/img/scf/EnvisionLogo.png" alt="">
+                    </div>
+                     <div class="item">
+                        <img class="img-responsive" src="assets/img/scf/ForumLogo.png" alt="">
                     </div>
                     <div class="item">
-                        <img class="img-responsive" src="assets/img/scf/Envision-logo.png" alt="">
+                        <img class="img-responsive" src="assets/img/scf/EnderbyLogo.png" alt="">
                     </div>
                 </div>
 

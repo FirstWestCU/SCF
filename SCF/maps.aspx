@@ -144,7 +144,7 @@
                         longLatData.push(new google.maps.LatLng(latlng.lat(), latlng.lng()));
 
                     } else {
-                           //alert(taddress);
+                           alert(taddress);
                     }
 
                     if (callbackcount == addresses.length) {
