@@ -10,8 +10,9 @@ C:\Users\nwelch\Desktop\New\SCF\SCF\bin\Coop.dll
 C:\Users\nwelch\Desktop\New\SCF\SCF\bin\Coop.pdb
 C:\Users\nwelch\Desktop\New\SCF\SCF\bin\BCrypt.dll
 C:\Users\nwelch\Desktop\New\SCF\SCF\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Coop\SCF\bin\Coop.dll.config
 C:\Projects\Coop\SCF\bin\Coop.dll
 C:\Projects\Coop\SCF\bin\Coop.pdb
-C:\Projects\Coop\SCF\obj\Debug\SCFWeb.csprojResolveAssemblyReference.cache
 C:\Projects\Coop\SCF\obj\Debug\Coop.dll
 C:\Projects\Coop\SCF\obj\Debug\Coop.pdb
+C:\Projects\Coop\SCF\obj\Debug\SCFWeb.csprojResolveAssemblyReference.cache

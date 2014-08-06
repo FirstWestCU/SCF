@@ -1,4 +1,4 @@
-<%@ Page Language="C#" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="registration.aspx.cs" Inherits="Coop.RegistrationPage" %>
 <!-- #include file="includes/htmlOpen.html" -->
 <div class="wrapper">
 <!-- #include file="includes/header.html" -->
@@ -8,29 +8,38 @@
     <div class="container content">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                <form class="reg-page">
+                <form id="registerForm" class="reg-page" action="registration.aspx/registerMember" method="post">
                     <div class="reg-header">
                         <h2>Register a new account</h2>
                         <p>Already Signed Up? Click <a href="login.aspx" class="color-green">Sign In</a> to login your account.</p>                    
                     </div>
 
                     <label>First Name</label>
-                    <input type="text" class="form-control margin-bottom-20">
+                    <input name="firstName" type="text" class="form-control margin-bottom-20">
                    
                     <label>Last Name</label>
-                    <input type="text" class="form-control margin-bottom-20">
+                    <input name="lastName" type="text" class="form-control margin-bottom-20">
                    
                     <label>Email Address <span class="color-red">*</span></label>
-                    <input type="text" class="form-control margin-bottom-20">
+                    <input name="emailAddress" type="text" class="form-control margin-bottom-20">
+
+                     <label>Credit Union <span class="color-red">*</span></label>
+                    <select name="creditUnionId" class="form-control margin-bottom-20">
+                        <%foreach (Coop.CreditUnionService.CreditUnion creditUnion in creditUnionList){ %>
+                            <option value="<%=creditUnion.ID %>"><%=creditUnion.Name %></option>
+                        <%
+                        }
+                        %>
+                        </select>
 
                     <div class="row">
                         <div class="col-sm-6">
                             <label>Password <span class="color-red">*</span></label>
-                            <input type="password" class="form-control margin-bottom-20">
+                            <input type="password" name="password" class="form-control margin-bottom-20">
                         </div>
                         <div class="col-sm-6">
                             <label>Confirm Password <span class="color-red">*</span></label>
-                            <input type="password" class="form-control margin-bottom-20">
+                            <input type="password"  class="form-control margin-bottom-20">
                         </div>
                     </div>
 
@@ -56,3 +65,56 @@
 
 <!-- #include file="includes/footer.html" -->
 <!-- #include file="includes/htmlClose.html" -->
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+
+
+
+        //Does not need to be document on
+        $(document).on('submit', '#registerForm', function () {
+
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: JSON.stringify($(this).serializeObject()),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    alert(msg.d);
+                    if (msg.d == "success") {
+                        window.location.href=""
+                    } else {
+
+                    }
+                }
+
+            });
+            return false;
+        });
+
+
+
+    //TODO - move to script utilities
+    $.fn.serializeObject = function () {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+
+
+
+});
+</script>

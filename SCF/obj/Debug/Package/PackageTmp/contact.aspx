@@ -9,7 +9,7 @@
     	<div class="row margin-bottom-30">
     		<div class="col-md-9 mb-margin-bottom-30">
                 <div class="headline"><h2>Contact Form</h2></div>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas feugiat. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit landitiis.</p><br />
+                <p>Get in touch with us to learn more about our values, projects and how we are helping credit unions across North America to succeed in their communities.</p><br />
     			<form>
                     <label>Name</label>
                     <div class="row margin-bottom-20">

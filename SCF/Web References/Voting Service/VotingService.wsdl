@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetProjectVotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="votingWindowID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjectVotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProjectVotesResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKeyValueStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KeyValueStruct" type="tns:KeyValueStruct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KeyValueStruct">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Key" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetVote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="votingWindowID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="projectID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="memberID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberHash" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetVoteResult" type="tns:ArrayOfKeyValueStruct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentVotingWindow">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrentVotingWindowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentVotingWindowResult" type="tns:VotingWindow" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VotingWindow">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateVotingWindow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="userHash" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVotingWindowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateVotingWindowResult" type="tns:VotingWindow" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVotingWindow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="votingWindowID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userHash" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVotingWindowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateVotingWindowResult" type="tns:VotingWindow" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetProjectVotesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjectVotes" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectVotesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectVotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetVoteSoapIn">
+    <wsdl:part name="parameters" element="tns:SetVote" />
+  </wsdl:message>
+  <wsdl:message name="SetVoteSoapOut">
+    <wsdl:part name="parameters" element="tns:SetVoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentVotingWindowSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentVotingWindow" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentVotingWindowSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentVotingWindowResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVotingWindowSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVotingWindow" />
+  </wsdl:message>
+  <wsdl:message name="CreateVotingWindowSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVotingWindowResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVotingWindowSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateVotingWindow" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVotingWindowSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateVotingWindowResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VotingServiceSoap">
+    <wsdl:operation name="GetProjectVotes">
+      <wsdl:input message="tns:GetProjectVotesSoapIn" />
+      <wsdl:output message="tns:GetProjectVotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVote">
+      <wsdl:input message="tns:SetVoteSoapIn" />
+      <wsdl:output message="tns:SetVoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentVotingWindow">
+      <wsdl:input message="tns:GetCurrentVotingWindowSoapIn" />
+      <wsdl:output message="tns:GetCurrentVotingWindowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVotingWindow">
+      <wsdl:input message="tns:CreateVotingWindowSoapIn" />
+      <wsdl:output message="tns:CreateVotingWindowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVotingWindow">
+      <wsdl:input message="tns:UpdateVotingWindowSoapIn" />
+      <wsdl:output message="tns:UpdateVotingWindowSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VotingServiceSoap" type="tns:VotingServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProjectVotes">
+      <soap:operation soapAction="http://tempuri.org/GetProjectVotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVote">
+      <soap:operation soapAction="http://tempuri.org/SetVote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentVotingWindow">
+      <soap:operation soapAction="http://tempuri.org/GetCurrentVotingWindow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVotingWindow">
+      <soap:operation soapAction="http://tempuri.org/CreateVotingWindow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVotingWindow">
+      <soap:operation soapAction="http://tempuri.org/UpdateVotingWindow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VotingServiceSoap12" type="tns:VotingServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProjectVotes">
+      <soap12:operation soapAction="http://tempuri.org/GetProjectVotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVote">
+      <soap12:operation soapAction="http://tempuri.org/SetVote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentVotingWindow">
+      <soap12:operation soapAction="http://tempuri.org/GetCurrentVotingWindow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVotingWindow">
+      <soap12:operation soapAction="http://tempuri.org/CreateVotingWindow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVotingWindow">
+      <soap12:operation soapAction="http://tempuri.org/UpdateVotingWindow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VotingService">
+    <wsdl:port name="VotingServiceSoap" binding="tns:VotingServiceSoap">
+      <soap:address location="http://54.186.69.152/services/VotingService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VotingServiceSoap12" binding="tns:VotingServiceSoap12">
+      <soap12:address location="http://54.186.69.152/services/VotingService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

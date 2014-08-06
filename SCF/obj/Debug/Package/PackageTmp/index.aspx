@@ -1,4 +1,4 @@
-<%@ Page Language="C#" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Coop.IndexPage" %>
 <!-- #include file="includes/htmlOpen.html" -->
 <div class="wrapper">
 <!-- #include file="includes/header.html" -->
@@ -8,7 +8,7 @@
     <div class="search-block parallaxBg">
         <div class="container">
             <div class="col-md-6 col-md-offset-3">
-                <h1>Building and Expanding Co-Operatives for our Communities</h1>
+                <h1>Building and Expanding<br /> Co-Operatives for our Communities</h1>
             </div>
         </div>    
     </div><!--/container-->     
@@ -55,7 +55,22 @@
         <div class="headline"><h2>Top Categories</h2></div>  
         <div class="row category margin-bottom-20">
             <!-- Info Blocks -->
-            <div class="col-md-4">
+            <%
+                foreach (Coop.CategoryService.Category category in categories) { 
+                 %>
+
+             <div class="content-boxes-v3">
+                    <i class="icon-custom icon-sm rounded-x icon-bg-light-grey icon-line icon-badge"></i>
+                    <div class="content-boxes-in-v3">
+                        <h3><a href="#"> <%=category.Description %></a></h3>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
+                    </div>
+                </div>
+
+            <%   
+            }
+             %>
+            <!--div class="col-md-4">
                 <div class="content-boxes-v3">
                     <i class="icon-custom icon-sm rounded-x icon-bg-light-grey icon-line icon-badge"></i>
                     <div class="content-boxes-in-v3">
@@ -78,11 +93,11 @@
                     </div>
                 </div>
     
-            </div>    
+            </!--div>    
             <!-- End Info Blocks -->
 
             <!-- Info Blocks -->
-            <div class="col-md-4">
+            <!--div class="col-md-4">
                 <div class="content-boxes-v3">
                     <i class="icon-custom icon-sm rounded-x icon-bg-light-grey fa fa-bell-o"></i>
                     <div class="content-boxes-in-v3">
@@ -105,11 +120,11 @@
                     </div>
                 </div>
           
-            </div>    
+            </!--div>    
             <!-- End Info Blocks -->
             
                        <!-- Info Blocks -->
-            <div class="col-md-4">
+            <!--div class="col-md-4">
                 <div class="content-boxes-v3">
                     <i class="icon-custom icon-sm rounded-x icon-bg-light-grey fa fa-bell-o"></i>
                     <div class="content-boxes-in-v3">
@@ -132,7 +147,7 @@
                     </div>
                 </div>
            
-            </div>    
+            </!--div>    
             <!-- End Info Blocks -->
         </div>    
         <!-- End Top Categories -->

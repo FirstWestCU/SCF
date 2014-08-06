@@ -1,0 +1,8 @@
+C:\Projects\Coop\SCF\bin\Coop.dll.config
+C:\Projects\Coop\SCF\bin\Coop.dll
+C:\Projects\Coop\SCF\bin\Coop.XmlSerializers.dll
+C:\Projects\Coop\SCF\bin\Coop.pdb
+C:\Projects\Coop\SCF\obj\Release\SCFWeb.csprojResolveAssemblyReference.cache
+C:\Projects\Coop\SCF\obj\Release\Coop.dll
+C:\Projects\Coop\SCF\obj\Release\Coop.pdb
+C:\Projects\Coop\SCF\obj\Release\Coop.XmlSerializers.dll
