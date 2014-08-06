@@ -13,10 +13,10 @@
 
              <div class="col-md-4">
                 <div class="view view-tenth">
-                    <img class="img-responsive" src="assets/img/scf/Boat.jpg" alt="" />
+                    <img class="img-responsive" src="assets/img/scf/<%=project.ID%>/image.jpg" alt="" />
                     <div class="mask">
                         <h2><%=project.Name%></h2>
-                        <p><%=project.Description %>.</p>
+                        <p><%=project.Description.Substring(0,(project.Description.Length>80?80:project.Description.Length)) %>.</p>
                         <a href="project.aspx?id=<%=project.ID %>" class="info">Read More</a>
                     </div>                
                 </div>

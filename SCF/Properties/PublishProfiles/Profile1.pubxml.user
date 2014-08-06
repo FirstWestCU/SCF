@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="about.aspx">
-      <publishTime>07/17/2014 09:39:55</publishTime>
+      <publishTime>08/06/2014 11:14:03</publishTime>
     </File>
     <File Include="assets/css/app.css">
       <publishTime>06/30/2014 08:50:39</publishTime>
@@ -905,6 +905,36 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="assets/img/posts/3.jpg">
       <publishTime>06/30/2014 08:50:46</publishTime>
+    </File>
+    <File Include="assets/img/scf/1/image.jpg">
+      <publishTime>08/06/2014 09:53:13</publishTime>
+    </File>
+    <File Include="assets/img/scf/10/image.jpg">
+      <publishTime>08/06/2014 09:53:16</publishTime>
+    </File>
+    <File Include="assets/img/scf/2/image.jpg">
+      <publishTime>08/06/2014 09:53:27</publishTime>
+    </File>
+    <File Include="assets/img/scf/3/image.jpg">
+      <publishTime>08/06/2014 09:58:46</publishTime>
+    </File>
+    <File Include="assets/img/scf/4/image.jpg">
+      <publishTime>08/06/2014 09:59:06</publishTime>
+    </File>
+    <File Include="assets/img/scf/5/image.jpg">
+      <publishTime>08/06/2014 09:57:39</publishTime>
+    </File>
+    <File Include="assets/img/scf/6/image.jpg">
+      <publishTime>08/06/2014 09:57:05</publishTime>
+    </File>
+    <File Include="assets/img/scf/7/image.jpg">
+      <publishTime>08/06/2014 09:55:59</publishTime>
+    </File>
+    <File Include="assets/img/scf/8/image.jpg">
+      <publishTime>08/06/2014 09:58:23</publishTime>
+    </File>
+    <File Include="assets/img/scf/9/image.jpg">
+      <publishTime>08/06/2014 09:56:02</publishTime>
     </File>
     <File Include="assets/img/scf/AirAcademyLogo.png">
       <publishTime>07/28/2014 08:37:30</publishTime>
@@ -3862,10 +3892,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2014 08:51:07</publishTime>
     </File>
     <File Include="bin/Coop.dll">
-      <publishTime>08/05/2014 13:38:26</publishTime>
+      <publishTime>08/06/2014 13:08:15</publishTime>
     </File>
     <File Include="bin/Coop.pdb">
-      <publishTime>08/05/2014 13:38:26</publishTime>
+      <publishTime>08/06/2014 13:08:15</publishTime>
     </File>
     <File Include="bin/Coop.XmlSerializers.dll">
       <publishTime>08/05/2014 13:19:04</publishTime>
@@ -3877,7 +3907,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/17/2014 09:39:55</publishTime>
     </File>
     <File Include="includes/header.html">
-      <publishTime>07/17/2014 09:39:55</publishTime>
+      <publishTime>08/06/2014 09:46:39</publishTime>
     </File>
     <File Include="includes/htmlClose.html">
       <publishTime>07/17/2014 09:39:55</publishTime>
@@ -3892,25 +3922,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/05/2014 09:56:26</publishTime>
     </File>
     <File Include="login.aspx">
-      <publishTime>07/17/2014 09:39:55</publishTime>
+      <publishTime>08/06/2014 09:00:29</publishTime>
     </File>
     <File Include="maps.aspx">
-      <publishTime>07/29/2014 11:49:51</publishTime>
+      <publishTime>08/06/2014 10:48:00</publishTime>
     </File>
     <File Include="partners.aspx">
-      <publishTime>07/29/2014 11:41:45</publishTime>
+      <publishTime>08/06/2014 11:01:14</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/05/2014 13:40:25</publishTime>
+      <publishTime>08/06/2014 13:16:37</publishTime>
     </File>
     <File Include="project.aspx">
-      <publishTime>08/05/2014 11:33:32</publishTime>
+      <publishTime>08/06/2014 13:08:14</publishTime>
     </File>
     <File Include="project.aspx.cs">
       <publishTime>08/05/2014 11:32:41</publishTime>
     </File>
     <File Include="projects.aspx">
-      <publishTime>08/05/2014 11:30:17</publishTime>
+      <publishTime>08/06/2014 09:55:35</publishTime>
     </File>
     <File Include="projects.aspx.cs">
       <publishTime>08/05/2014 09:26:09</publishTime>
@@ -3928,7 +3958,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2014 16:19:21</publishTime>
     </File>
     <File Include="registration.aspx">
-      <publishTime>07/17/2014 09:40:00</publishTime>
+      <publishTime>08/06/2014 09:54:36</publishTime>
     </File>
     <File Include="SCFWeb.csproj">
       <publishTime>08/05/2014 13:36:28</publishTime>
@@ -4051,7 +4081,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/31/2014 12:44:01</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/05/2014 13:40:10</publishTime>
+      <publishTime>08/06/2014 13:08:35</publishTime>
     </File>
     <File Include="Web.Debug.config">
       <publishTime>06/30/2014 08:48:22</publishTime>

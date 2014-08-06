@@ -74,12 +74,12 @@
     </div>    
     <!--=== End Content Part ===-->
 
-    <!--=== Parallax About Block ===-->
+       <!--=== Parallax About Block ===-->
     <div class="parallax-bg">            
         <div class="container content parallax-about">
             <div class="title-box-v2">
-                <h2>About our company</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h2>About Us</h2>
+                <p>Sustainable Coop seeks to highlight the cumulative efforts of all credit unions in North America, working to build and expand cooperatives voted on by members. The cooperatives chosen will receive grants in order to help sponsor efforts, duplicate sustainable business models and help the cooperatives impact their own and other communities. </p>
             </div>
 
             <div class="row">
@@ -88,28 +88,20 @@
                         <i class="rounded-x icon-bell"></i>
                         <div class="overflow-h">
                             <h3>Our mission</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt sit amet dui auctor pellentesque. Nulla ut posuere purus.</p>
+                            <p>Working to validate the importance of credit unions and the investments they make in their communities.  </p>
                         </div>
                     </div>
                     <div class="banner-info light margin-bottom-10">
                         <i class="rounded-x fa fa-magic"></i>
                         <div class="overflow-h">
                             <h3>Our vision</h3>
-                            <p>Phasellus vitae rhoncus ipsum. Aliquam ultricies, velit sit amet scelerisque tincidunt, dolor neque consequat est, a dictum felis metus eget nulla.</p>
+                            <p>Uniting credit unions across North America to create long lasting, positive change in our world. </p>
                         </div>
                     </div>
-                    <div class="banner-info light margin-bottom-10">
-                        <i class="rounded-x fa fa-thumbs-o-up"></i>
-                        <div class="overflow-h">
-                            <h3>We are good at ...</h3>
-                            <p>Nunc ac ligula ut diam rutrum porttitor. Integer et neque at lacus placerat pretium eu ac dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                        </div>
-                    </div>
+                 
                     <div class="margin-bottom-20"></div>
                 </div>
-                <div class="col-md-6">
-                    <img class="img-responsive" src="assets/img/mockup/1.png" alt="">
-                </div>
+                
             </div>    
         </div><!--/container--> 
     </div>      

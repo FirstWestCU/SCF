@@ -1,4 +1,4 @@
-<%@ Page Language="C#" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Coop.LoginPage" %>
 <!-- #include file="includes/htmlOpen.html" -->
 
 
@@ -17,13 +17,14 @@
             <p>Don't Have Account? Click <a class="color-green" href="registration.aspx">Sign Up</a> to registration.</p>            
         </div>
 
+        <form id="loginForm" name="loginForm" method="post" action="login.aspx/login">
         <div class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-            <input type="text" class="form-control" placeholder="Email">
+            <input name="userName" type="text" class="form-control" placeholder="Email">
         </div>
         <div class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input type="text" class="form-control" placeholder="Password">
+            <input name="password" type="text" class="form-control" placeholder="Password">
         </div>
         <hr>
         <label class="checkbox">
@@ -36,6 +37,7 @@
                 <button type="submit" class="btn-u btn-block">Log In</button>
             </div>
         </div>
+        </form>
     </div>
     <!--End Reg Block-->
 </div><!--/container-->
@@ -43,3 +45,53 @@
 
 
 <!-- #include file="includes/htmlClose.html" -->
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+
+
+
+        //Does not need to be document on
+        $(document).on('submit', '#loginForm', function () {
+
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: JSON.stringify($(this).serializeObject()),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    alert(msg.d);
+                }
+
+            });
+            return false;
+        });
+
+
+
+    //TODO - move to script utilities
+    $.fn.serializeObject = function () {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+
+
+
+});
+</script>
