@@ -12,33 +12,15 @@
                 <div class="carousel slide carousel-v1" id="myCarousel">
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img alt="" src="assets/img/main/11.jpg">
+                            <img alt="" src="assets/img/scf/<%=project.ID%>/image.jpg">
                             <div class="carousel-caption">
                                 <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
                             </div>
                         </div>
-                        <div class="item">
-                            <img alt="" src="assets/img/main/12.jpg">
-                            <div class="carousel-caption">
-                                <p>Cras justo odio, dapibus ac facilisis into egestas.</p>
-                            </div>
-                            </div>
-                        <div class="item">
-                            <img alt="" src="assets/img/main/13.jpg">
-                            <div class="carousel-caption">
-                                <p>Justo cras odio apibus ac afilisis lingestas de.</p>
-                            </div>
-                        </div>
+                     
                     </div>
                     
-                    <div class="carousel-arrow">
-                        <a data-slide="prev" href="#myCarousel" class="left carousel-control">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a data-slide="next" href="#myCarousel" class="right carousel-control">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
+       
                 </div>
             </div>
             <!-- End Carousel -->
@@ -50,9 +32,53 @@
                 <ul class="list-unstyled">
                 	<li><i class="fa fa-user color-green"></i> Jack Baur</li>
                 	<li><i class="fa fa-calendar color-green"></i> 14,2003 February</li>
-                	<li><i class="fa fa-tags color-green"></i> Websites, Google, HTML5/CSS3</li>
+                	<li><i class="fa fa-tags color-green"></i> <%=projectVoteCount%></li>
                 </ul>
-                <buton type="button" class="btn-u btn-u-large">VISIT THE PROJECT</button>
+                
+                <!--Vote form-->
+                <button class="btn-u" data-toggle="modal" data-target="#responsive">Vote for this Co-op</button>
+                 <div class="modal fade" id="responsive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Voting Ballot </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p>
+                                                    <label> First Name</label>
+                                                    <input class="form-control" type="text" />
+                                                </p>
+                                                <p>
+                                                    <label> Last Name</label>
+                                                    <input class="form-control" type="text" />
+                                                </p>
+                                                <p>
+                                                    <label>Credit Union</label>
+                                                    <input class="form-control" type="text" />
+                                                 </p>
+                                                <p>
+                                                    <label>Account Number</label>
+                                                    <input class="form-control" type="text" />
+                                                </p>
+                                              
+                                            </div>
+                                       
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn-u btn-u-default" data-dismiss="modal">Close</button>
+                                        <button id="voteCast_<%=project.ID%>" type="button" class="voteCast btn-u btn-u-primary">Cast Your Vote!</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
             </div>
             <!-- End Content Info -->        
         </div><!--/row-->
@@ -68,3 +94,25 @@
 
  <!-- #include file="includes/footer.html" -->
 <!-- #include file="includes/htmlClose.html" -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".voteCast").click(function () {
+            projectId = $(this).attr("id");
+            url = "project.aspx/setVote";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: "{\"id\":\"\10\"}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    // alert(escapeHtml(msg.d));
+                    // Do something interesting here.
+                    // $("#content").html("<samp>" + escapeHtml(msg.d) + "</samp>");
+                    alert('back');
+                }
+            });
+        });
+    });
+</script>

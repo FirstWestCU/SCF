@@ -5,9 +5,18 @@
             <div class="container">
                 <!-- Topbar Navigation -->
                 <ul class="loginbar pull-right">
-
+<%
+if (Session["MemberHash"]!=null){
+%>
 
                     <li><a href="login.aspx">Login</a></li>   
+<%
+}else{
+%>
+                    <li><a href="logut.aspx">Logout</a></li> 
+<%                  
+}
+%>
                 </ul>
                 <!-- End Topbar Navigation -->
             </div>
