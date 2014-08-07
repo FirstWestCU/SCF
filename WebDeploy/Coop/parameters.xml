@@ -1,0 +1,9 @@
+﻿<parameters>
+  <parameter name="IIS Web Application Name" defaultValue="SCF" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Projects\\Coop\\SCF\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Projects\\Coop\\SCF\\obj\\Debug\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="SCF-Web.config Connection String" defaultValue="server=AAFCUAppsODBC.aafcu.com;uid=coopuser;pwd=fbI7p9e8aNcM;database=CreditUnionCOOP;Packet Size=4096; Max Pool Size=200">
+    <parameterEntry kind="XmlFile" scope="C:\\Projects\\Coop\\SCF\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SCF']/@connectionString" />
+  </parameter>
+</parameters>

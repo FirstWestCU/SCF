@@ -13,9 +13,9 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <img alt="" src="assets/img/scf/<%=project.ID%>/image.jpg">
-                            <div class="carousel-caption">
+                            <!--div class="carousel-caption">
                                 <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
-                            </div>
+                            </div-->
                         </div>
                      
                     </div>
@@ -30,9 +30,9 @@
             	<h2><%=project.Name%></h2>
                 <%=project.Description%>
                 <ul class="list-unstyled">
-                	<li><i class="fa fa-user color-green"></i> Jack Baur</li>
-                	<li><i class="fa fa-calendar color-green"></i> 14,2003 February</li>
-                	<li><i class="fa fa-tags color-green"></i> <%=projectVoteCount%></li>
+                	<li><i class="fa fa-user color-green"></i> <%=project.ProposedBy.Name%></li>
+                	<li><i class="fa fa-bookmark color-green"></i> <%=project.Website %></li>
+                	<li><i class="fa fa-check color-green"></i> <%=projectVoteCount%></li>
                 </ul>
                 
                 <!--Vote form-->
@@ -98,12 +98,12 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $(".voteCast").click(function () {
-            projectId = $(this).attr("id");
+            projectId = $(this).attr("id").split('_')[1];
             url = "project.aspx/setVote";
             $.ajax({
                 type: "POST",
                 url: url,
-                data: "{\"id\":\"\10\"}",
+                data: "{\"projectIdString\":\""+projectId +"\"}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (msg) {

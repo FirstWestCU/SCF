@@ -20,6 +20,7 @@
       </s:element>
       <s:complexType name="Member">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="CU" type="tns:CreditUnion" />
@@ -29,6 +30,7 @@
       </s:complexType>
       <s:complexType name="CreditUnion">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Abbr" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Website" type="s:string" />
@@ -54,6 +56,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Member" nillable="true" type="tns:Member" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="AuthenticateMemberSoapIn">
@@ -68,6 +71,42 @@
   <wsdl:message name="CreateMemberSoapOut">
     <wsdl:part name="parameters" element="tns:CreateMemberResponse" />
   </wsdl:message>
+  <wsdl:message name="AuthenticateMemberHttpGetIn">
+    <wsdl:part name="hash" type="s:string" />
+    <wsdl:part name="latitude" type="s:string" />
+    <wsdl:part name="longitude" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateMemberHttpGetOut">
+    <wsdl:part name="Body" element="tns:Member" />
+  </wsdl:message>
+  <wsdl:message name="CreateMemberHttpGetIn">
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="creditUnion" type="s:string" />
+    <wsdl:part name="latitude" type="s:string" />
+    <wsdl:part name="longitude" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateMemberHttpGetOut">
+    <wsdl:part name="Body" element="tns:Member" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateMemberHttpPostIn">
+    <wsdl:part name="hash" type="s:string" />
+    <wsdl:part name="latitude" type="s:string" />
+    <wsdl:part name="longitude" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateMemberHttpPostOut">
+    <wsdl:part name="Body" element="tns:Member" />
+  </wsdl:message>
+  <wsdl:message name="CreateMemberHttpPostIn">
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="creditUnion" type="s:string" />
+    <wsdl:part name="latitude" type="s:string" />
+    <wsdl:part name="longitude" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateMemberHttpPostOut">
+    <wsdl:part name="Body" element="tns:Member" />
+  </wsdl:message>
   <wsdl:portType name="MemberServiceSoap">
     <wsdl:operation name="AuthenticateMember">
       <wsdl:input message="tns:AuthenticateMemberSoapIn" />
@@ -76,6 +115,26 @@
     <wsdl:operation name="CreateMember">
       <wsdl:input message="tns:CreateMemberSoapIn" />
       <wsdl:output message="tns:CreateMemberSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MemberServiceHttpGet">
+    <wsdl:operation name="AuthenticateMember">
+      <wsdl:input message="tns:AuthenticateMemberHttpGetIn" />
+      <wsdl:output message="tns:AuthenticateMemberHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMember">
+      <wsdl:input message="tns:CreateMemberHttpGetIn" />
+      <wsdl:output message="tns:CreateMemberHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MemberServiceHttpPost">
+    <wsdl:operation name="AuthenticateMember">
+      <wsdl:input message="tns:AuthenticateMemberHttpPostIn" />
+      <wsdl:output message="tns:AuthenticateMemberHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMember">
+      <wsdl:input message="tns:CreateMemberHttpPostIn" />
+      <wsdl:output message="tns:CreateMemberHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="MemberServiceSoap" type="tns:MemberServiceSoap">
@@ -120,12 +179,60 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="MemberServiceHttpGet" type="tns:MemberServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AuthenticateMember">
+      <http:operation location="/AuthenticateMember" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMember">
+      <http:operation location="/CreateMember" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MemberServiceHttpPost" type="tns:MemberServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AuthenticateMember">
+      <http:operation location="/AuthenticateMember" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMember">
+      <http:operation location="/CreateMember" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="MemberService">
     <wsdl:port name="MemberServiceSoap" binding="tns:MemberServiceSoap">
       <soap:address location="http://54.186.69.152/services/MemberService.asmx" />
     </wsdl:port>
     <wsdl:port name="MemberServiceSoap12" binding="tns:MemberServiceSoap12">
       <soap12:address location="http://54.186.69.152/services/MemberService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MemberServiceHttpGet" binding="tns:MemberServiceHttpGet">
+      <http:address location="http://54.186.69.152/services/MemberService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MemberServiceHttpPost" binding="tns:MemberServiceHttpPost">
+      <http:address location="http://54.186.69.152/services/MemberService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

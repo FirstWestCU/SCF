@@ -80,26 +80,32 @@ namespace Coop
         }
 
 
-        [WebMethod]
-        public static string setVote(string id)
+       [WebMethod(EnableSession = true)]
+        public static string setVote(string projectIdString)
         {
 
 
             try
             {
 
-                int projectId = Convert.ToInt32(id);
+                int projectId = Convert.ToInt32(projectIdString);
 
 
                 //Need the voting windows
                   Voting_Service.VotingWindow votingWindow = new Voting_Service.VotingWindow();
 
-                  
+
+                  String memberHash = (string)HttpContext.Current.Session["memberHash"];
+                  int memberId = (int)HttpContext.Current.Session["memberId"];
+
 
 
                 Voting_Service.VotingService votingService = new Voting_Service.VotingService();
                 votingWindow = votingService.GetCurrentVotingWindow();
-                votingService.SetVote(votingWindow.ID, projectId, projectId, "test");
+
+
+
+                votingService.SetVote(votingWindow.ID, projectId, memberId, memberHash);
 
           
             }

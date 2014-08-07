@@ -36,6 +36,7 @@ namespace Coop
                 MemberService.Member member =  memberService.CreateMember(firstName + " " + lastName, emailAddress, Convert.ToInt32(creditUnionId), 49.5014700, -119.5921800);
 
                 HttpContext.Current.Session["memberHash"] = member.Hash;
+                HttpContext.Current.Session["memberId"] = member.ID;
                 return "success";
             
 

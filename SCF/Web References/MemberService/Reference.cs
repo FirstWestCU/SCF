@@ -174,6 +174,8 @@ namespace Coop.MemberService {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Member {
         
+        private int idField;
+        
         private string hashField;
         
         private string nameField;
@@ -183,6 +185,16 @@ namespace Coop.MemberService {
         private double latitudeField;
         
         private double longitudeField;
+        
+        /// <remarks/>
+        public int ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
         
         /// <remarks/>
         public string Hash {
@@ -243,6 +255,8 @@ namespace Coop.MemberService {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class CreditUnion {
         
+        private int idField;
+        
         private string nameField;
         
         private string abbrField;
@@ -252,6 +266,16 @@ namespace Coop.MemberService {
         private double latitudeField;
         
         private double longitudeField;
+        
+        /// <remarks/>
+        public int ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
         
         /// <remarks/>
         public string Name {

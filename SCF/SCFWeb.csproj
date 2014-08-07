@@ -1183,6 +1183,7 @@
     <Content Include="assets\plugins\vector-map\tests\index.html" />
     <Content Include="assets\plugins\vector-map\tests\markers.html" />
     <Content Include="assets\plugins\vector-map\tests\reverse-projection.html" />
+    <Content Include="logout.aspx" />
     <Content Include="maps.aspx" />
     <Content Include="login.aspx" />
     <Content Include="partners.aspx" />
@@ -1288,6 +1289,13 @@
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="project.aspx.cs">
       <DependentUpon>project.aspx</DependentUpon>
