@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="SCF" />
+  <setParameter name="SCF-Web.config Connection String" value="server=AAFCUAppsODBC.aafcu.com;uid=coopuser;pwd=fbI7p9e8aNcM;database=CreditUnionCOOP;Packet Size=4096; Max Pool Size=200" />
+</parameters>
