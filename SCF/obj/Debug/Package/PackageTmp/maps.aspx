@@ -59,28 +59,25 @@
         var map3;
 
         var mapOptions = {
-            zoom: 7,
-            center: new google.maps.LatLng(50.000, -124.000),
-            mapTypeId: google.maps.MapTypeId.SATELLITE
+            zoom: 9,
+            center: new google.maps.LatLng(49.100, -122.800)
         };
 
         var mapOptions2 = {
-            zoom: 7,
-            center: new google.maps.LatLng(50.000, -124.000),
-            mapTypeId: google.maps.MapTypeId.SATELLITE
+            zoom: 8,
+            center: new google.maps.LatLng(39.800, -86.200)
         };
 
         var mapOptions3 = {
-            zoom: 7,
-            center: new google.maps.LatLng(50.000, -124.000),
-            mapTypeId: google.maps.MapTypeId.SATELLITE
+            zoom: 9,
+            center: new google.maps.LatLng(38.900, -104.820)
         };
 
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
         map2 = new google.maps.Map(document.getElementById('map2'), mapOptions2);
         map3 = new google.maps.Map(document.getElementById('map3'), mapOptions3);
 
-
+        /*
         var addresses = [
             "2387, Ware St, Abbotsford, BC,V2S3C6, Canada",
             "2420, Montrose Avenue, Abbotsford BC, V2S3S9, Canada",
@@ -168,153 +165,81 @@
             "961 East Colorado Avenue, Colorado Springs, CO, 80903 USA",
             "8605 Explorer Drive, Colorado Springs, CO, 80920 USA",
             "6155 Fountain Valley School Road, Colorado Springs, CO, 80911 USA"];
+        */
+
+        var addresses = [
+        [49.045495,-122.304501],
+        [49.046104,-122.290108],
+        [49.048955, -122.286250],
+        [49.053258,-122.330883],
+        [49.103789, -122.652936],
+        [49.246312, -123.127505]];
+
+        var addresses2=[
+        [39.809223 , -86.157872],
+        [39.776082 , -86.151976],
+        [39.936303 , -86.230449],
+        [39.710510 , -86.260948],
+        [39.898283 , -86.216281],
+        [39.770329 , -86.166160]];
+
+        var addresses3=[
+        [38.936271 , -104.815987],
+        [38.997755 , -104.875637],
+        [38.834184 , -104.823209],
+        [38.833882 , -104.821363],
+        [38.831940 , -104.805668],
+        [38.962273, -104.789967]];;
+
 
 
 
         var longLatData = [];
 
-        var callbackcount = 0;
         //Loop through addresses
         for (var i = 0; i < addresses.length; i++) {
-            taddress = addresses[i];
-            sleep(1000);
+         
+            longLatData.push(new google.maps.LatLng(addresses[i][0], addresses[i][1]));
           
-            // alert(taddress);
-            GMaps.geocode({
-                address: taddress,
-                callback: function (results, status) {
-
-                    callbackcount++;
-
-                    if (status == 'OK') {
-                        var latlng = results[0].geometry.location;
-                        // alert(latlng.lat());
-                        /*map.addMarker({
-                        lat: latlng.lat(),
-                        lng: latlng.lng()
-                        });*/
-                        //alert(latlng.lat());
-                        longLatData.push(new google.maps.LatLng(latlng.lat(), latlng.lng()));
-
-                    } else {
-                           alert(status);
-                    }
-
-                    if (callbackcount == addresses.length) {
-                        // alert(longLatData.length);
-                        var pointArray = new google.maps.MVCArray(longLatData);
-                        //  alert(pointArray.length);
-                        heatmap = new google.maps.visualization.HeatmapLayer({
-                            data: pointArray
-                        });
-
-                        heatmap.setMap(map);
-                    }
-
-                }
-            });
         } //end for
 
+        var pointArray = new google.maps.MVCArray(longLatData);
+        //  alert(pointArray.length);
+        heatmap = new google.maps.visualization.HeatmapLayer({ data: pointArray});
+        heatmap.setMap(map);
+        
         ///////////////////////////////////////////
         var longLatData2 = [];
 
-        var callbackcount2 = 0;
-  
         //Loop through addresses
         for (var i = 0; i < addresses2.length; i++) {
-            taddress2 = addresses2[i];
-            sleep(1000);
-          
-         
-        
-            GMaps.geocode({
-                address: taddress2,
-                callback: function (results2, status2) {
 
-                    callbackcount2++;
+            longLatData2.push(new google.maps.LatLng(addresses2[i][0], addresses2[i][1]));
 
-                    if (status2 == 'OK') {
-                        var latlng2 = results2[0].geometry.location;
-                        // alert(latlng.lat());
-                        /*map.addMarker({
-                        lat: latlng.lat(),
-                        lng: latlng.lng()
-                        });*/
-                        //alert(latlng.lat());
-                        longLatData2.push(new google.maps.LatLng(latlng2.lat(), latlng2.lng()));
-
-                    } else {
-                      //  alert(status2);
-                    }
-
-                    if (callbackcount2 == addresses2.length) {
-                       
-                        // alert(longLatData2.length);
-                        var pointArray2 = new google.maps.MVCArray(longLatData2);
-                        //  alert(pointArray.length);
-                        heatmap2 = new google.maps.visualization.HeatmapLayer({
-                            data: pointArray2
-                        });
-
-                        heatmap2.setMap(map2);
-                    }
-
-                }
-            });
         } //end for
+
+        var pointArray2 = new google.maps.MVCArray(longLatData2);
+        //  alert(pointArray.length);
+        heatmap2 = new google.maps.visualization.HeatmapLayer({ data: pointArray2 });
+        heatmap2.setMap(map2);
+
+
         /////////////////////////////////////////////////////
         var longLatData3 = [];
 
-        var callbackcount3 = 0;
         //Loop through addresses
         for (var i = 0; i < addresses3.length; i++) {
-            taddress3 = addresses3[i];
-            sleep(1000);
-            // alert(taddress);
-            GMaps.geocode({
-                address: taddress3,
-                callback: function (results3, status3) {
 
-                    callbackcount3++;
+            longLatData3.push(new google.maps.LatLng(addresses3[i][0], addresses3[i][1]));
 
-                    if (status3 == 'OK') {
-                        var latlng3 = results3[0].geometry.location;
-                        // alert(latlng.lat());
-                        /*map.addMarker({
-                        lat: latlng.lat(),
-                        lng: latlng.lng()
-                        });*/
-                        //alert(latlng.lat());
-                        longLatData3.push(new google.maps.LatLng(latlng3.lat(), latlng3.lng()));
-
-                    } else {
-                        //alert(taddress);
-                    }
-
-                    if (callbackcount3 == addresses3.length) {
-                        // alert(longLatData.length);
-                        var pointArray3 = new google.maps.MVCArray(longLatData3);
-                        //  alert(pointArray.length);
-                        heatmap3 = new google.maps.visualization.HeatmapLayer({
-                            data: pointArray3
-                        });
-
-                        heatmap3.setMap(map3);
-                    }
-
-                }
-            });
         } //end for
 
+        var pointArray3 = new google.maps.MVCArray(longLatData3);
+        //  alert(pointArray.length);
+        heatmap3 = new google.maps.visualization.HeatmapLayer({ data: pointArray3 });
+        heatmap3.setMap(map3);
 
-        function sleep(milliseconds) {
-            var start = new Date().getTime();
-            for (var i = 0; i < 1e7; i++) {
-                if ((new Date().getTime() - start) > milliseconds) {
-                    break;
-                }
-            }
-        }
+
 
     });
 </script>

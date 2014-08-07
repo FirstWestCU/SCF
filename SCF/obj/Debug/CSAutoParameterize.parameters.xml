@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="SCF-Web.config Connection String" description="SCF Connection String used in web.config by the application to access the database." defaultValue="server=AAFCUAppsODBC.aafcu.com;uid=coopuser;pwd=fbI7p9e8aNcM;database=CreditUnionCOOP;Packet Size=4096; Max Pool Size=200" tags="SqlConnectionString">
+  <parameter name="SCF-Web.config Connection String" description="SCF Connection String used in web.config by the application to access the database." defaultValue="server=WIN-JB55BG9VFB0;uid=coopuser;pwd=1234;database=CreditUnionCOOP;Packet Size=4096; Max Pool Size=200" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Projects\\Coop\\SCF\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SCF']/@connectionString" />
   </parameter>
 </parameters>

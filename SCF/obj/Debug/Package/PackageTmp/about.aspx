@@ -42,7 +42,7 @@
                   
                     <div class="inner-faq-b">
                         <h2>Step 1: Report Your Investments</h2>
-                        <img src="/assets/img/scf/Map-Grey.png"/>                        
+                        <img style="height:223px" src="/assets/img/scf/Map-Grey.png"/>                        
                     </div>    
                 </div>
             </div>
@@ -51,7 +51,7 @@
                     <div class="service-bg"></div>
                     <div class="inner-faq-b">
                         <h2>Step 2: Member Vote</h2>
-                        <img src="/assets/img/scf/Votebox.png"/>                        
+                        <img style="height:255px" src="/assets/img/scf/Votebox.png"/>                        
                     </div>    
                 </div>
             </div>  
@@ -61,7 +61,7 @@
                     <i class="fa fa-map-marker"></i>
                     <div class="inner-faq-b">
                        <h2>Step 3: Choose Recipients</h2>
-                        <img src="/assets/img/scf/MoneyBag.png"/>
+                        <img style="height:255px" src="/assets/img/scf/MoneyBag.png"/>
                     </div>    
                 </div>
             </div>
