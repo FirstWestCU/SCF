@@ -16,7 +16,7 @@
 
                 <!-- Basic Map -->
                 <div class="headline">
-                       <h3>Basic Map</h3>
+                       <h3>Vancouver and Lower Mainland</h3>
                 </div>
                 <div id="map" class="map margin-bottom-50">
                 </div>
@@ -24,7 +24,7 @@
 
                <!-- Basic Map2 -->
                 <div class="headline">
-                       <h3>Basic Map2</h3>
+                       <h3>Indianapolis and Lower Mainland</h3>
                 </div>
                 <div id="map2" class="map margin-bottom-50">
                 </div>
@@ -33,7 +33,7 @@
 
                <!-- Basic Map3 -->
                 <div class="headline">
-                       <h3>Basic Map3</h3>
+                       <h3>Colorado Springs and Lower Mainland</h3>
                 </div>
                 <div id="map3" class="map margin-bottom-50">
                 </div>

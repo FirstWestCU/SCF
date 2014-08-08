@@ -198,6 +198,8 @@ namespace Coop.CategoryService {
         
         private string descriptionField;
         
+        private string detailsField;
+        
         /// <remarks/>
         public int ID {
             get {
@@ -215,6 +217,16 @@ namespace Coop.CategoryService {
             }
             set {
                 this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Details {
+            get {
+                return this.detailsField;
+            }
+            set {
+                this.detailsField = value;
             }
         }
     }

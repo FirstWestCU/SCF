@@ -17,7 +17,7 @@
     <!--=== Content ===-->
     <div class="container content">
         <!-- Begin Service Block -->
-        <div class="row margin-bottom-40">
+        <!---div class="row margin-bottom-40">
             <div class="col-md-4">
                 <div class="easy-block-v3 service-or">
                     <div class="service-bg"></div>
@@ -48,7 +48,7 @@
                     </div>    
                 </div>
             </div>
-        </div>    
+        </div-->    
         <!-- End Service Block -->
 
         <!-- Top Categories -->
@@ -63,7 +63,7 @@
                     <i class="icon-custom icon-sm rounded-x icon-bg-light-grey icon-line icon-badge"></i>
                     <div class="content-boxes-in-v3">
                         <h3><a href="#"> <%=category.Description %></a></h3>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
+                        <p><%=category.Details %></p>
                     </div>
                 </div>
 
