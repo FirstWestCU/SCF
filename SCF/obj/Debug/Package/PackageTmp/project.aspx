@@ -35,6 +35,14 @@
                 	<li><i class="fa fa-check color-green"></i> <%=projectVoteCount%></li>
                 </ul>
                 
+
+<%
+if (Session["MemberHash"]==null){
+%>
+    <button id="registerToVoteButton" class="btn-u">Register to Vote</button>
+<%
+}else {        
+%>
                 <!--Vote form-->
                 <button class="btn-u" data-toggle="modal" data-target="#responsive">Vote for this Co-op</button>
                  <div class="modal fade" id="responsive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -75,6 +83,10 @@
                                 </div>
                             </div>
                         </div>
+
+<%
+}
+%>
                     </div>
 
 
@@ -114,5 +126,11 @@
                 }
             });
         });
+
+
+        $("#registerToVoteButton").click(function () {
+            window.location.href = "registration.aspx";
+        });
+
     });
 </script>
