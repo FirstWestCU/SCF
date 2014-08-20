@@ -15,10 +15,15 @@ namespace Coop
     {
 
               protected CreditUnionService.CreditUnion[] creditUnionList;
+              protected CategoryService.Category[] categoryList;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             CreditUnionService.CreditUnionService creditUnionService = new CreditUnionService.CreditUnionService();
             creditUnionList = creditUnionService.GetAllCreditUnions();
+
+            CategoryService.CategoryService categoryService = new CategoryService.CategoryService();
+            categoryList = categoryService.GetProjectCategories();
 
            
        }

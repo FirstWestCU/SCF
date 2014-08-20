@@ -13,7 +13,8 @@ if (Session["MemberHash"]==null){
 <%
 }else{
 %>
-                    <li><a id="logout" href="logut.aspx">Logout</a></li> 
+                    <li><a id="contribution" href="contribution.aspx">Contributions</a></li> 
+                      <li><a id="logout" href="logut.aspx">Logout</a></li> 
 <%                  
 }
 %>
@@ -55,6 +56,14 @@ if (Session["MemberHash"]==null){
                             </a>
                         </li>
                         <!-- End About -->
+
+                        <!-- Projects -->
+                        <li class="">
+                            <a href="contributions.aspx">
+                                Contributions
+                            </a>
+                        </li>
+                        <!-- End Projects -->
 
                          <!-- Projects -->
                         <li class="">
@@ -112,7 +121,7 @@ if (Session["MemberHash"]==null){
                        
 
                         <!-- Search Block -->
-                        <li>
+                        <!---li>
                             <i class="search fa fa-search search-btn"></i>
                             <div class="search-open">
                                 <div class="input-group animated fadeInDown">
@@ -122,7 +131,7 @@ if (Session["MemberHash"]==null){
                                     </span>
                                 </div>
                             </div>    
-                        </li>
+                        </!--li-->
                         <!-- End Search Block -->
                     </ul>
                 </div><!--/navbar-collapse-->

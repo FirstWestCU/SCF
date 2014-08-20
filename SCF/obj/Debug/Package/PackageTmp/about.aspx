@@ -11,9 +11,9 @@
         <!-- About Description -->
         <div class="title-box-v2">
             <h2>About </h2>
-       <p>
+       <!--p>
        Credit Unions do a outstanding job telling stories about their individual community involvement.  However, this is not true for us as an industry.  What if there was a way to show the cumulative social impact all Credit Unions provide?  What if this information could be used not only to validate our value-proposition, relevancy and tax-exempt status but also to engage our younger-members and help spark new cooperatives?  
-       </p>
+       </!--p>
        <p>
         The Sustainable Cooperative Fund will help build and expand cooperatives selected by our members.  This project has two areas.  First, a repository for participating Credit Unions to report the areas they invest their time, dollars, outreach efforts.  This information is then aggregated and incorporated into a heat-map showing how and where we impact society.  This information is not only helpful for our trade associations and legislators, it also shows our members why being a part of a Credit Union is important.  Second, each year every participating Credit Union will reach out to their members to see which identified cooperatives should be recipients of grant money.  From the aggregated heat-map data, the Fund will select several broad areas where Credit Unions are heavily involved (Financial Literacy, Relief Efforts, Cancer Research, Poverty, etc) and identify small cooperatives serving these needs.  By Credit Union, members will rank-order their top cooperatives.  Each Credit Union will then have an overall vote (1st, 2nd and 3rd place) to select which cooperatives are recipients of each year’s grants.  We are striving to give each participating Credit Union an equal voice, thereby giving each individual member an equal voice.  The grants will help sponsor efforts, duplicate sustainable business models and help the cooperatives impact both their own and other communities.  
         </p>
@@ -22,7 +22,11 @@
         </p>
         <p>
         The Sustainable Cooperative Fund - turning dollars into change
-        </p>
+        </p-->
+
+            <p>
+            The Sustainable Cooperative Fund will help build and expand cooperatives selected by our Credit Union members. This project has two areas. First, a repository for participating Credit Unions to report the areas they invest their time, dollars, outreach efforts. This information is then aggregated and incorporated into a heat-map showing how and where we impact society. This information is not only helpful for our trade associations and legislators; it also shows our members why being a part of a Credit Union is important. Second, each year every participating Credit Union will reach out to their members to see which identified cooperatives should be recipients of grant money. From the aggregated heat-map data, the Fund will select several broad areas where Credit Unions are heavily involved and identify small cooperatives serving these needs. We are striving to give each participating Credit Union an equal voice, thereby giving each individual member an equal voice. The grants will help sponsor efforts, duplicate sustainable business models and help the cooperatives impact both their own and other communities.
+            </p>
         </div>
 
 

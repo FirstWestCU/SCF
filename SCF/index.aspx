@@ -16,6 +16,70 @@
 
     <!--=== Content ===-->
     <div class="container content">
+
+          <!-- About Description -->
+        <div class="title-box-v2">
+    
+            <p>
+                Credit Unions do an outstanding job telling stories about their individual community involvement. However, this can’t be said for us as an industry. What if there was a way to show the cumulative social impact all Credit Unions provide? What if this information could be used not only to validate our value-proposition, relevancy and tax-exempt status but also to engage our younger-members and help spark new cooperatives?
+            </p>
+            <p>
+                There are just over 100 million Credit Union members in the United States and Canada. If their Credit Unions made a single contribution of $1 per member, we could continually generate $1 million each year. This sustainable endowment fund could be used to help build numerous cooperatives that simply need help getting started.
+            </p>
+            <p>
+                The Sustainable Cooperative Fund - turning dollars into change
+            </p>
+        </div>
+
+        
+         <!-- Begin Service Block -->
+        <div class="row margin-bottom-40">
+            <div class="col-md-4">
+                <!--div class="easy-block-v3 service-or">
+                    <div class="service-bg"></div>
+                    <i class="fa fa-globe"></i>
+                    <div class="inner-faq-b">
+                        <h2>Web Search</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.</p>                        
+                    </div>    
+                </div-->
+                <div class="easy-block-v3 service-or">
+                    <div class="service-bg"></div>
+                  
+                    <div class="inner-faq-b">
+                        <h2>Step 1: Report Investments</h2>
+               
+                        <img style="height:223px; display:block;margin:0px auto" src="/assets/img/scf/North_America.png"/>      
+                                   
+                    </div>    
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="easy-block-v3 service-or">
+                    <div class="service-bg"></div>
+                    <div class="inner-faq-b">
+                        <h2>Step 2: Member Vote</h2>
+                   
+                        <img style="height:223px; display:block;margin:0px auto" src="/assets/img/scf/Votebox.png"/>   
+                                      
+                    </div>    
+                </div>
+            </div>  
+            <div class="col-md-4">
+                <div class="easy-block-v3 service-or">
+                    <div class="service-bg"></div>
+                    <div class="inner-faq-b">
+                       <h2>Step 3: Choose Recipients</h2>
+                        <img style="height:223px; display:block;margin:0px auto" src="/assets/img/scf/MoneyBag.png"/>
+
+                    </div>    
+                </div>
+            </div>
+        </div>    
+        <!-- End Service Block -->
+
+
+
         <!-- Begin Service Block -->
         <!---div class="row margin-bottom-40">
             <div class="col-md-4">

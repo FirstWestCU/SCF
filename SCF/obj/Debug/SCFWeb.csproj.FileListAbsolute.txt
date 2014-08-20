@@ -13,6 +13,6 @@ C:\Users\nwelch\Desktop\New\SCF\SCF\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Coop\SCF\bin\Coop.dll.config
 C:\Projects\Coop\SCF\bin\Coop.dll
 C:\Projects\Coop\SCF\bin\Coop.pdb
+C:\Projects\Coop\SCF\obj\Debug\SCFWeb.csprojResolveAssemblyReference.cache
 C:\Projects\Coop\SCF\obj\Debug\Coop.dll
 C:\Projects\Coop\SCF\obj\Debug\Coop.pdb
-C:\Projects\Coop\SCF\obj\Debug\SCFWeb.csprojResolveAssemblyReference.cache

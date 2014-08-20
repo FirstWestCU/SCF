@@ -29,11 +29,17 @@ namespace Coop.CategoryService {
     [System.Web.Services.WebServiceBindingAttribute(Name="CategoryServiceSoap", Namespace="http://tempuri.org/")]
     public partial class CategoryService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback GetCategoryDescriptionOperationCompleted;
+        private System.Threading.SendOrPostCallback GetProjectCategoryDescriptionOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetCategoryIDOperationCompleted;
+        private System.Threading.SendOrPostCallback GetDonationCategoryDescriptionOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetCategoriesOperationCompleted;
+        private System.Threading.SendOrPostCallback GetProjectCategoryIDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetDonationCategoryIDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetProjectCategoriesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetDonationCategoriesOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -74,96 +80,190 @@ namespace Coop.CategoryService {
         }
         
         /// <remarks/>
-        public event GetCategoryDescriptionCompletedEventHandler GetCategoryDescriptionCompleted;
+        public event GetProjectCategoryDescriptionCompletedEventHandler GetProjectCategoryDescriptionCompleted;
         
         /// <remarks/>
-        public event GetCategoryIDCompletedEventHandler GetCategoryIDCompleted;
+        public event GetDonationCategoryDescriptionCompletedEventHandler GetDonationCategoryDescriptionCompleted;
         
         /// <remarks/>
-        public event GetCategoriesCompletedEventHandler GetCategoriesCompleted;
+        public event GetProjectCategoryIDCompletedEventHandler GetProjectCategoryIDCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCategoryDescription", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string GetCategoryDescription(int id) {
-            object[] results = this.Invoke("GetCategoryDescription", new object[] {
+        public event GetDonationCategoryIDCompletedEventHandler GetDonationCategoryIDCompleted;
+        
+        /// <remarks/>
+        public event GetProjectCategoriesCompletedEventHandler GetProjectCategoriesCompleted;
+        
+        /// <remarks/>
+        public event GetDonationCategoriesCompletedEventHandler GetDonationCategoriesCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetProjectCategoryDescription", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetProjectCategoryDescription(int id) {
+            object[] results = this.Invoke("GetProjectCategoryDescription", new object[] {
                         id});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void GetCategoryDescriptionAsync(int id) {
-            this.GetCategoryDescriptionAsync(id, null);
+        public void GetProjectCategoryDescriptionAsync(int id) {
+            this.GetProjectCategoryDescriptionAsync(id, null);
         }
         
         /// <remarks/>
-        public void GetCategoryDescriptionAsync(int id, object userState) {
-            if ((this.GetCategoryDescriptionOperationCompleted == null)) {
-                this.GetCategoryDescriptionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetCategoryDescriptionOperationCompleted);
+        public void GetProjectCategoryDescriptionAsync(int id, object userState) {
+            if ((this.GetProjectCategoryDescriptionOperationCompleted == null)) {
+                this.GetProjectCategoryDescriptionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetProjectCategoryDescriptionOperationCompleted);
             }
-            this.InvokeAsync("GetCategoryDescription", new object[] {
-                        id}, this.GetCategoryDescriptionOperationCompleted, userState);
+            this.InvokeAsync("GetProjectCategoryDescription", new object[] {
+                        id}, this.GetProjectCategoryDescriptionOperationCompleted, userState);
         }
         
-        private void OnGetCategoryDescriptionOperationCompleted(object arg) {
-            if ((this.GetCategoryDescriptionCompleted != null)) {
+        private void OnGetProjectCategoryDescriptionOperationCompleted(object arg) {
+            if ((this.GetProjectCategoryDescriptionCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetCategoryDescriptionCompleted(this, new GetCategoryDescriptionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.GetProjectCategoryDescriptionCompleted(this, new GetProjectCategoryDescriptionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCategoryID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int GetCategoryID(string description) {
-            object[] results = this.Invoke("GetCategoryID", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDonationCategoryDescription", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetDonationCategoryDescription(int id) {
+            object[] results = this.Invoke("GetDonationCategoryDescription", new object[] {
+                        id});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDonationCategoryDescriptionAsync(int id) {
+            this.GetDonationCategoryDescriptionAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetDonationCategoryDescriptionAsync(int id, object userState) {
+            if ((this.GetDonationCategoryDescriptionOperationCompleted == null)) {
+                this.GetDonationCategoryDescriptionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDonationCategoryDescriptionOperationCompleted);
+            }
+            this.InvokeAsync("GetDonationCategoryDescription", new object[] {
+                        id}, this.GetDonationCategoryDescriptionOperationCompleted, userState);
+        }
+        
+        private void OnGetDonationCategoryDescriptionOperationCompleted(object arg) {
+            if ((this.GetDonationCategoryDescriptionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDonationCategoryDescriptionCompleted(this, new GetDonationCategoryDescriptionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetProjectCategoryID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int GetProjectCategoryID(string description) {
+            object[] results = this.Invoke("GetProjectCategoryID", new object[] {
                         description});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void GetCategoryIDAsync(string description) {
-            this.GetCategoryIDAsync(description, null);
+        public void GetProjectCategoryIDAsync(string description) {
+            this.GetProjectCategoryIDAsync(description, null);
         }
         
         /// <remarks/>
-        public void GetCategoryIDAsync(string description, object userState) {
-            if ((this.GetCategoryIDOperationCompleted == null)) {
-                this.GetCategoryIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetCategoryIDOperationCompleted);
+        public void GetProjectCategoryIDAsync(string description, object userState) {
+            if ((this.GetProjectCategoryIDOperationCompleted == null)) {
+                this.GetProjectCategoryIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetProjectCategoryIDOperationCompleted);
             }
-            this.InvokeAsync("GetCategoryID", new object[] {
-                        description}, this.GetCategoryIDOperationCompleted, userState);
+            this.InvokeAsync("GetProjectCategoryID", new object[] {
+                        description}, this.GetProjectCategoryIDOperationCompleted, userState);
         }
         
-        private void OnGetCategoryIDOperationCompleted(object arg) {
-            if ((this.GetCategoryIDCompleted != null)) {
+        private void OnGetProjectCategoryIDOperationCompleted(object arg) {
+            if ((this.GetProjectCategoryIDCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetCategoryIDCompleted(this, new GetCategoryIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.GetProjectCategoryIDCompleted(this, new GetProjectCategoryIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCategories", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Category[] GetCategories() {
-            object[] results = this.Invoke("GetCategories", new object[0]);
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDonationCategoryID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int GetDonationCategoryID(string description) {
+            object[] results = this.Invoke("GetDonationCategoryID", new object[] {
+                        description});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDonationCategoryIDAsync(string description) {
+            this.GetDonationCategoryIDAsync(description, null);
+        }
+        
+        /// <remarks/>
+        public void GetDonationCategoryIDAsync(string description, object userState) {
+            if ((this.GetDonationCategoryIDOperationCompleted == null)) {
+                this.GetDonationCategoryIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDonationCategoryIDOperationCompleted);
+            }
+            this.InvokeAsync("GetDonationCategoryID", new object[] {
+                        description}, this.GetDonationCategoryIDOperationCompleted, userState);
+        }
+        
+        private void OnGetDonationCategoryIDOperationCompleted(object arg) {
+            if ((this.GetDonationCategoryIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDonationCategoryIDCompleted(this, new GetDonationCategoryIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetProjectCategories", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Category[] GetProjectCategories() {
+            object[] results = this.Invoke("GetProjectCategories", new object[0]);
             return ((Category[])(results[0]));
         }
         
         /// <remarks/>
-        public void GetCategoriesAsync() {
-            this.GetCategoriesAsync(null);
+        public void GetProjectCategoriesAsync() {
+            this.GetProjectCategoriesAsync(null);
         }
         
         /// <remarks/>
-        public void GetCategoriesAsync(object userState) {
-            if ((this.GetCategoriesOperationCompleted == null)) {
-                this.GetCategoriesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetCategoriesOperationCompleted);
+        public void GetProjectCategoriesAsync(object userState) {
+            if ((this.GetProjectCategoriesOperationCompleted == null)) {
+                this.GetProjectCategoriesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetProjectCategoriesOperationCompleted);
             }
-            this.InvokeAsync("GetCategories", new object[0], this.GetCategoriesOperationCompleted, userState);
+            this.InvokeAsync("GetProjectCategories", new object[0], this.GetProjectCategoriesOperationCompleted, userState);
         }
         
-        private void OnGetCategoriesOperationCompleted(object arg) {
-            if ((this.GetCategoriesCompleted != null)) {
+        private void OnGetProjectCategoriesOperationCompleted(object arg) {
+            if ((this.GetProjectCategoriesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetCategoriesCompleted(this, new GetCategoriesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.GetProjectCategoriesCompleted(this, new GetProjectCategoriesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDonationCategories", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Category[] GetDonationCategories() {
+            object[] results = this.Invoke("GetDonationCategories", new object[0]);
+            return ((Category[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDonationCategoriesAsync() {
+            this.GetDonationCategoriesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetDonationCategoriesAsync(object userState) {
+            if ((this.GetDonationCategoriesOperationCompleted == null)) {
+                this.GetDonationCategoriesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDonationCategoriesOperationCompleted);
+            }
+            this.InvokeAsync("GetDonationCategories", new object[0], this.GetDonationCategoriesOperationCompleted, userState);
+        }
+        
+        private void OnGetDonationCategoriesOperationCompleted(object arg) {
+            if ((this.GetDonationCategoriesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDonationCategoriesCompleted(this, new GetDonationCategoriesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -233,17 +333,17 @@ namespace Coop.CategoryService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
-    public delegate void GetCategoryDescriptionCompletedEventHandler(object sender, GetCategoryDescriptionCompletedEventArgs e);
+    public delegate void GetProjectCategoryDescriptionCompletedEventHandler(object sender, GetProjectCategoryDescriptionCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetCategoryDescriptionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetProjectCategoryDescriptionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal GetCategoryDescriptionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal GetProjectCategoryDescriptionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -259,17 +359,43 @@ namespace Coop.CategoryService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
-    public delegate void GetCategoryIDCompletedEventHandler(object sender, GetCategoryIDCompletedEventArgs e);
+    public delegate void GetDonationCategoryDescriptionCompletedEventHandler(object sender, GetDonationCategoryDescriptionCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetCategoryIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetDonationCategoryDescriptionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal GetCategoryIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal GetDonationCategoryDescriptionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void GetProjectCategoryIDCompletedEventHandler(object sender, GetProjectCategoryIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetProjectCategoryIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetProjectCategoryIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -285,17 +411,69 @@ namespace Coop.CategoryService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
-    public delegate void GetCategoriesCompletedEventHandler(object sender, GetCategoriesCompletedEventArgs e);
+    public delegate void GetDonationCategoryIDCompletedEventHandler(object sender, GetDonationCategoryIDCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetCategoriesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetDonationCategoryIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal GetCategoriesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal GetDonationCategoryIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void GetProjectCategoriesCompletedEventHandler(object sender, GetProjectCategoriesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetProjectCategoriesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetProjectCategoriesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Category[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Category[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void GetDonationCategoriesCompletedEventHandler(object sender, GetDonationCategoriesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetDonationCategoriesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetDonationCategoriesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

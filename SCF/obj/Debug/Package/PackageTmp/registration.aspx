@@ -46,12 +46,7 @@
                     <hr>
 
                     <div class="row">
-                        <div class="col-lg-6">
-                            <label class="checkbox">
-                                <input type="checkbox"> 
-                                I read <a href="#" class="color-green">Terms and Conditions</a>
-                            </label>                        
-                        </div>
+                        
                         <div class="col-lg-6 text-right">
                             <button class="btn-u" type="submit">Register</button>                        
                         </div>

@@ -335,6 +335,7 @@
     <Content Include="assets\img\scf\Logo.png" />
     <Content Include="assets\img\scf\Map-Grey.png" />
     <Content Include="assets\img\scf\MoneyBag.png" />
+    <Content Include="assets\img\scf\North_America.png" />
     <Content Include="assets\img\scf\Running.jpg" />
     <Content Include="assets\img\scf\ValleyFirst-logo.png" />
     <Content Include="assets\img\scf\ValleyFirstLogo.png" />
@@ -637,6 +638,7 @@
     <Content Include="assets\plugins\flexslider\jquery.flexslider-min.js" />
     <Content Include="assets\plugins\flexslider\jquery.flexslider.js" />
     <Content Include="assets\plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\plugins\font-awesome\css\font-awesome.min41.css" />
     <Content Include="assets\plugins\font-awesome\css\font-awesome.min.css" />
     <Content Include="assets\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\plugins\gmap\gmap.js" />
@@ -1183,6 +1185,7 @@
     <Content Include="assets\plugins\vector-map\tests\index.html" />
     <Content Include="assets\plugins\vector-map\tests\markers.html" />
     <Content Include="assets\plugins\vector-map\tests\reverse-projection.html" />
+    <Content Include="contributions.aspx" />
     <Content Include="logout.aspx" />
     <Content Include="maps.aspx" />
     <Content Include="login.aspx" />
@@ -1197,6 +1200,7 @@
     <Content Include="project.aspx" />
     <Content Include="registration.aspx" />
     <Content Include="projects.aspx" />
+    <Content Include="contribution.aspx" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1282,6 +1286,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="contributions.aspx.cs">
+      <DependentUpon>contributions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contributions.aspx.designer.cs">
+      <DependentUpon>contributions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1349,6 +1360,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="contribution.aspx.cs">
+      <DependentUpon>contribution.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contribution.aspx.designer.cs">
+      <DependentUpon>contribution.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

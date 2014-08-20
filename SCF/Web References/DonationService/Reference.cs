@@ -104,7 +104,26 @@ namespace Coop.DonationService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddDonation", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Donation AddDonation(string userHash, int creditUnion, string title, int category, int onclock, int offclock, int dollars, double latitude, double longitude, string additionalInfo, System.DateTime donationDate, int userID) {
+        public Donation AddDonation(
+                    string userHash, 
+                    int creditUnion, 
+                    string title, 
+                    int category, 
+                    int onclock, 
+                    int offclock, 
+                    int dollars, 
+                    int otherContributions, 
+                    string address1, 
+                    string address2, 
+                    string city, 
+                    string state, 
+                    string zip, 
+                    string country, 
+                    double latitude, 
+                    double longitude, 
+                    string additionalInfo, 
+                    System.DateTime donationDate, 
+                    int userID) {
             object[] results = this.Invoke("AddDonation", new object[] {
                         userHash,
                         creditUnion,
@@ -113,6 +132,13 @@ namespace Coop.DonationService {
                         onclock,
                         offclock,
                         dollars,
+                        otherContributions,
+                        address1,
+                        address2,
+                        city,
+                        state,
+                        zip,
+                        country,
                         latitude,
                         longitude,
                         additionalInfo,
@@ -122,12 +148,51 @@ namespace Coop.DonationService {
         }
         
         /// <remarks/>
-        public void AddDonationAsync(string userHash, int creditUnion, string title, int category, int onclock, int offclock, int dollars, double latitude, double longitude, string additionalInfo, System.DateTime donationDate, int userID) {
-            this.AddDonationAsync(userHash, creditUnion, title, category, onclock, offclock, dollars, latitude, longitude, additionalInfo, donationDate, userID, null);
+        public void AddDonationAsync(
+                    string userHash, 
+                    int creditUnion, 
+                    string title, 
+                    int category, 
+                    int onclock, 
+                    int offclock, 
+                    int dollars, 
+                    int otherContributions, 
+                    string address1, 
+                    string address2, 
+                    string city, 
+                    string state, 
+                    string zip, 
+                    string country, 
+                    double latitude, 
+                    double longitude, 
+                    string additionalInfo, 
+                    System.DateTime donationDate, 
+                    int userID) {
+            this.AddDonationAsync(userHash, creditUnion, title, category, onclock, offclock, dollars, otherContributions, address1, address2, city, state, zip, country, latitude, longitude, additionalInfo, donationDate, userID, null);
         }
         
         /// <remarks/>
-        public void AddDonationAsync(string userHash, int creditUnion, string title, int category, int onclock, int offclock, int dollars, double latitude, double longitude, string additionalInfo, System.DateTime donationDate, int userID, object userState) {
+        public void AddDonationAsync(
+                    string userHash, 
+                    int creditUnion, 
+                    string title, 
+                    int category, 
+                    int onclock, 
+                    int offclock, 
+                    int dollars, 
+                    int otherContributions, 
+                    string address1, 
+                    string address2, 
+                    string city, 
+                    string state, 
+                    string zip, 
+                    string country, 
+                    double latitude, 
+                    double longitude, 
+                    string additionalInfo, 
+                    System.DateTime donationDate, 
+                    int userID, 
+                    object userState) {
             if ((this.AddDonationOperationCompleted == null)) {
                 this.AddDonationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddDonationOperationCompleted);
             }
@@ -139,6 +204,13 @@ namespace Coop.DonationService {
                         onclock,
                         offclock,
                         dollars,
+                        otherContributions,
+                        address1,
+                        address2,
+                        city,
+                        state,
+                        zip,
+                        country,
                         latitude,
                         longitude,
                         additionalInfo,
@@ -185,7 +257,27 @@ namespace Coop.DonationService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateDonation", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Donation UpdateDonation(string userHash, int id, int creditUnion, string title, int category, int onclock, int offclock, int dollars, double latitude, double longitude, string additionalInfo, System.DateTime donationDate, int userID) {
+        public Donation UpdateDonation(
+                    string userHash, 
+                    int id, 
+                    int creditUnion, 
+                    string title, 
+                    int category, 
+                    int onclock, 
+                    int offclock, 
+                    int dollars, 
+                    int otherContributions, 
+                    string address1, 
+                    string address2, 
+                    string city, 
+                    string state, 
+                    string zip, 
+                    string country, 
+                    double latitude, 
+                    double longitude, 
+                    string additionalInfo, 
+                    System.DateTime donationDate, 
+                    int userID) {
             object[] results = this.Invoke("UpdateDonation", new object[] {
                         userHash,
                         id,
@@ -195,6 +287,13 @@ namespace Coop.DonationService {
                         onclock,
                         offclock,
                         dollars,
+                        otherContributions,
+                        address1,
+                        address2,
+                        city,
+                        state,
+                        zip,
+                        country,
                         latitude,
                         longitude,
                         additionalInfo,
@@ -204,12 +303,53 @@ namespace Coop.DonationService {
         }
         
         /// <remarks/>
-        public void UpdateDonationAsync(string userHash, int id, int creditUnion, string title, int category, int onclock, int offclock, int dollars, double latitude, double longitude, string additionalInfo, System.DateTime donationDate, int userID) {
-            this.UpdateDonationAsync(userHash, id, creditUnion, title, category, onclock, offclock, dollars, latitude, longitude, additionalInfo, donationDate, userID, null);
+        public void UpdateDonationAsync(
+                    string userHash, 
+                    int id, 
+                    int creditUnion, 
+                    string title, 
+                    int category, 
+                    int onclock, 
+                    int offclock, 
+                    int dollars, 
+                    int otherContributions, 
+                    string address1, 
+                    string address2, 
+                    string city, 
+                    string state, 
+                    string zip, 
+                    string country, 
+                    double latitude, 
+                    double longitude, 
+                    string additionalInfo, 
+                    System.DateTime donationDate, 
+                    int userID) {
+            this.UpdateDonationAsync(userHash, id, creditUnion, title, category, onclock, offclock, dollars, otherContributions, address1, address2, city, state, zip, country, latitude, longitude, additionalInfo, donationDate, userID, null);
         }
         
         /// <remarks/>
-        public void UpdateDonationAsync(string userHash, int id, int creditUnion, string title, int category, int onclock, int offclock, int dollars, double latitude, double longitude, string additionalInfo, System.DateTime donationDate, int userID, object userState) {
+        public void UpdateDonationAsync(
+                    string userHash, 
+                    int id, 
+                    int creditUnion, 
+                    string title, 
+                    int category, 
+                    int onclock, 
+                    int offclock, 
+                    int dollars, 
+                    int otherContributions, 
+                    string address1, 
+                    string address2, 
+                    string city, 
+                    string state, 
+                    string zip, 
+                    string country, 
+                    double latitude, 
+                    double longitude, 
+                    string additionalInfo, 
+                    System.DateTime donationDate, 
+                    int userID, 
+                    object userState) {
             if ((this.UpdateDonationOperationCompleted == null)) {
                 this.UpdateDonationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateDonationOperationCompleted);
             }
@@ -222,6 +362,13 @@ namespace Coop.DonationService {
                         onclock,
                         offclock,
                         dollars,
+                        otherContributions,
+                        address1,
+                        address2,
+                        city,
+                        state,
+                        zip,
+                        country,
                         latitude,
                         longitude,
                         additionalInfo,
@@ -381,6 +528,8 @@ namespace Coop.DonationService {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Donation {
         
+        private int idField;
+        
         private CreditUnion donatingCreditUnionField;
         
         private string titleField;
@@ -391,7 +540,25 @@ namespace Coop.DonationService {
         
         private int offClockHoursField;
         
+        private int totalHoursField;
+        
         private int dollarsField;
+        
+        private int otherContributionsValueField;
+        
+        private int totalDollarValueField;
+        
+        private string address1Field;
+        
+        private string address2Field;
+        
+        private string cityField;
+        
+        private string stateField;
+        
+        private string zIPField;
+        
+        private string countryField;
         
         private double latitudeField;
         
@@ -402,6 +569,16 @@ namespace Coop.DonationService {
         private System.DateTime donationDateField;
         
         private System.DateTime dateAddedField;
+        
+        /// <remarks/>
+        public int ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
         
         /// <remarks/>
         public CreditUnion DonatingCreditUnion {
@@ -454,12 +631,102 @@ namespace Coop.DonationService {
         }
         
         /// <remarks/>
+        public int TotalHours {
+            get {
+                return this.totalHoursField;
+            }
+            set {
+                this.totalHoursField = value;
+            }
+        }
+        
+        /// <remarks/>
         public int Dollars {
             get {
                 return this.dollarsField;
             }
             set {
                 this.dollarsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int OtherContributionsValue {
+            get {
+                return this.otherContributionsValueField;
+            }
+            set {
+                this.otherContributionsValueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalDollarValue {
+            get {
+                return this.totalDollarValueField;
+            }
+            set {
+                this.totalDollarValueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Address1 {
+            get {
+                return this.address1Field;
+            }
+            set {
+                this.address1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Address2 {
+            get {
+                return this.address2Field;
+            }
+            set {
+                this.address2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string City {
+            get {
+                return this.cityField;
+            }
+            set {
+                this.cityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string State {
+            get {
+                return this.stateField;
+            }
+            set {
+                this.stateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ZIP {
+            get {
+                return this.zIPField;
+            }
+            set {
+                this.zIPField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Country {
+            get {
+                return this.countryField;
+            }
+            set {
+                this.countryField = value;
             }
         }
         
@@ -522,6 +789,8 @@ namespace Coop.DonationService {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class CreditUnion {
         
+        private int idField;
+        
         private string nameField;
         
         private string abbrField;
@@ -531,6 +800,16 @@ namespace Coop.DonationService {
         private double latitudeField;
         
         private double longitudeField;
+        
+        /// <remarks/>
+        public int ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
         
         /// <remarks/>
         public string Name {
