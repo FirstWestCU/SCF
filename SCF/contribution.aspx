@@ -8,6 +8,8 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 
+                <h1>Enter Contribution Information</h1>
+
                 <form id="contributionForm" method="post" action="contribution.aspx/addContribution">
                     <label>Credit Union Name</label>
                          <select name="creditUnionId" class="form-control margin-bottom-20">
@@ -25,6 +27,12 @@
                                     }
                                     %>
                                     </select>
+
+                        <div>
+                        <label>Charity or Organization Name</label>
+                        <input type ="text" name="charityName" class="form-control margin-bottom-20">
+                    </div>
+
                     <div>
                         <label>Charity Address 1</label>
                         <input type ="text" id="address1" name="address1" class="form-control margin-bottom-20">
@@ -50,11 +58,24 @@
                         <input type ="text" id="country" name="country" class="form-control margin-bottom-20">
                     </div> 
                        <div>
-                        <label>Charity or Organization Name</label>
-                        <input type ="text" name="charityName" class="form-control margin-bottom-20">
-                    </div>
+                        <label>Charity Description</label>
+                           <textarea id="description" name="description"class="form-control margin-bottom-20"></textarea>
+                    </div> 
+                       <div>
+                        <label>Amount</label>
+                        <input type ="text" id="amount" name="amount" class="form-control margin-bottom-20">
+                    </div> 
+                         <div>
+                        <label>Volunteer Hours</label>
+                        <input type ="text" id="volunteerHours" name="volunteerHours" class="form-control margin-bottom-20">
+                    </div> 
+
+                      <div>
+                        <label>Contributed Dollar Value</label>
+                        <input type ="text" id="contributedDollarValue" name="contributedDollarValue" class="form-control margin-bottom-20">
+                    </div> 
+                   
                     <div>
-                     
                         <p><button id="contributionFormButton" type="submit" class="btn-u">Submit</button></p>
                     </div>
 
@@ -115,7 +136,8 @@
 
                     } else {
 
-                        alert(status);
+                        //  alert(status);
+                        alert("The address does not appear to be valid.  Please correct any errors and try again.");
                     }
                 }
             });//end geocode

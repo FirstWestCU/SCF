@@ -27,7 +27,7 @@ namespace Coop
 
 
         [WebMethod(EnableSession = true)]
-        public static string addContribution(string creditUnionId, string categoryId, string address1, string address2, string city,string provState, string postalZip, string country, string charityName, string lat, string lng)
+        public static string addContribution(string creditUnionId, string categoryId, string address1, string address2, string city,string provState, string postalZip, string country, string charityName, string lat, string lng, string description, string amount, string contributedDollarValue, string volunteerHours)
         {
 
             try
@@ -38,11 +38,11 @@ namespace Coop
                 string userHash = "ABC";
                 int cuID = Convert.ToInt32(creditUnionId);
                 int catID = Convert.ToInt32(categoryId);
-                int onClock = 0;
+                int onClock = Convert.ToInt32(volunteerHours);
                 int offClock = 0;
-                int dollars =100;
+                int dollars = Convert.ToInt32(amount);
                 int otherContributions=0;
-                string additionalInfo ="";
+               // string additionalInfo ="";
               
                 Double latitude = Convert.ToDouble(lat);
                 Double longitude= Convert.ToDouble(lng);
@@ -52,7 +52,7 @@ namespace Coop
              
                 DonationService.Donation submittedDonation =  donationService.AddDonation(userHash, cuID, charityName,catID,onClock, offClock, dollars,
                         otherContributions,address1,address2,city,provState,postalZip, country, 
-                        latitude, longitude, additionalInfo,donationDate, userId );
+                        latitude, longitude, description,donationDate, userId );
            
                
              

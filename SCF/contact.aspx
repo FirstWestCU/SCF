@@ -15,7 +15,7 @@
                 <div class="funny-boxes funny-boxes-colored funny-boxes-grey">
                     <div class="row">
                         <div class="col-md-4 funny-boxes-img">
-                            <img class="img-responsive" src="assets/img/new/img8.jpg" alt="">
+                            <img class="img-responsive" src="assets/img/scf/Doug.png" alt="">
                         </div>
                         <div class="col-md-8">
                             <h2><a href="#">Douglas Ebner</a></h2>
@@ -31,7 +31,7 @@
                   <div class="funny-boxes funny-boxes-colored funny-boxes-red">
                     <div class="row">
                         <div class="col-md-4 funny-boxes-img">
-                            <img class="img-responsive" src="assets/img/new/img8.jpg" alt="">
+                            <img class="img-responsive" src="assets/img/scf/Andrew.png" alt="">
                         </div>
                         <div class="col-md-8">
                             <h2><a href="#">Andrew Spirrison </a></h2>
@@ -47,7 +47,7 @@
                   <div class="funny-boxes funny-boxes-colored funny-boxes-blue">
                     <div class="row">
                         <div class="col-md-4 funny-boxes-img">
-                            <img class="img-responsive" src="assets/img/new/img8.jpg" alt="">
+                            <img class="img-responsive" src="assets/img/scf/Brad.png" alt="">
                         </div>
                         <div class="col-md-8">
                             <h2><a href="#">Brad Barnes, CPA</a></h2>

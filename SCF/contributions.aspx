@@ -9,7 +9,9 @@
         <div class="row">
             <div class="col-md-12">
 
-                <h1>Contributions</h1>
+
+                <div class="servive-block servive-block-default">
+                              <h1>Contributions</h1>
               <p>
                   Credit Unions do an outstanding job telling stories about their individual community involvement.  Share below the contributions done by your credit union!.
 
@@ -18,18 +20,19 @@
 
                     By entering contributions, you are showing the involvment your staff had within the community, and where your dollars go.
                     After entering the information, the Sustainable Coop Fund will be able to mark it on th heat map to show a representation of your Credit Union's commmunity involvment.
-                    Let us help you share and spread the word of the great work you are doing within your community.
+                    Let us help you share and spread the word of the great work you are doing within your community.<br /><br />
                 </p>
+                     <p>
+                    <button class="btn btn-u-lg btn-u rounded" id="enterContributions">Enter Contribution</button>
+                   </p>
+                                         
+                </div>
+
+             
             </div><!--cols-->
         </div><!--row-->
 
-        <div class="row">
-             <div class="col-md-12">
-                 <p>
-                    <button class="btn btn-u-lg btn-u rounded" id="enterContributions">Enter Contribution</button>
-                   </p>
-             </div>
-        </div>
+  
 
 
          <div class="row">
@@ -43,34 +46,52 @@
                  <div class="funny-boxes funny-boxes-top-sea">
                     <div class="row">
                         <div class="col-md-6 funny-boxes-img">
-                            <img class="img-responsive" src="assets/img/new/img10.jpg" alt="">
+<%
+//temp code for image placement
+               int theID = donation.ID;
+               int imageId = theID % 2;
+               
+//Get category
+               Coop.CategoryService.CategoryService categoryService = new Coop.CategoryService.CategoryService();
+%>
+
+
+                            <img class="img-responsive" src="assets/img/scf/contrImages/<%=imageId%>.png" alt="">
                         </div>
                         <div class="col-md-6">
-                            <p>
-                                 Credit Union <%=donation.DonatingCreditUnion.Name%>
+                           
+                                <label><%=donation.DonatingCreditUnion.Name%></label>
+                          
+                              <p>
+                                 <label><%=categoryService.GetDonationCategoryDescription(donation.Category)%></label>
                             </p>
                               <p>
-                                 Category <%=donation.DonatingCreditUnion.Name%>
-                            </p>
-                              <p>
-                                Charity or Organization <%=donation.Title%><br/>
+                               <label>  <%=donation.Title%></label>
+                                  <address style="text-align:right">
                                 <%=donation.Address1%><br />
+<%
+               if (!String.IsNullOrEmpty(donation.Address2)) { 
+%>
                                 <%=donation.Address2%><br />
+<% 
+}
+%>
                                 <%=donation.City%>,   <%=donation.State%> <%=donation.ZIP%><br />
                                 <%=donation.Country%>
+                                      </address>
                             </p>
                               <p>
-                                 Contributed Dollar Value: <%=donation.Dollars%>
+                                 <label>Contributed Dollar Value</label> <%=donation.Dollars%>
                             </p>
                               <p>
-                                  Other Contributions(non-monetary): 
+                                  <label>Other Contributions(non-monetary)</label><%=donation.OtherContributionsValue %>
                             </p>
                        
                        </div>
                     </div>  
                      <div class="row">
                           <div class="col-md-12">
-                             Description: <%=donation.AdditionalInfo%>
+                            <label>Description</label> <%=donation.AdditionalInfo%>
                             </div>
                      </div>                          
                 </div>
