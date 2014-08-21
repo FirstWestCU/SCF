@@ -319,6 +319,8 @@
     <Content Include="assets\img\scf\8\image.jpg" />
     <Content Include="assets\img\scf\Andrew.png" />
     <Content Include="assets\img\scf\Brad.png" />
+    <Content Include="assets\img\scf\contrImages\1.png" />
+    <Content Include="assets\img\scf\contrImages\0.png" />
     <Content Include="assets\img\scf\Doug.png" />
     <Content Include="assets\img\scf\9\image.jpg" />
     <Content Include="assets\img\scf\AirAcademyLogo.png" />
