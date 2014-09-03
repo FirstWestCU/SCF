@@ -10,7 +10,7 @@
 
                 <h1>Enter Contribution Information</h1>
 
-                <form id="contributionForm" method="post" action="contribution.aspx/addContribution">
+                <form id="contributionForm" method="post" action="contribution.aspx/addContribution" enctype="multipart/form-data">
                     <label>Credit Union Name</label>
                          <select name="creditUnionId" class="form-control margin-bottom-20">
                                     <%foreach (Coop.CreditUnionService.CreditUnion creditUnion in creditUnionList){ %>
@@ -74,6 +74,11 @@
                         <label>Contributed Dollar Value</label>
                         <input type ="text" id="contributedDollarValue" name="contributedDollarValue" class="form-control margin-bottom-20">
                     </div> 
+
+                     <div>
+                        <label for="image1">Image File</label>
+                        <input id="myfile" type="file" >
+                    </div>
                    
                     <div>
                         <p><button id="contributionFormButton" type="submit" class="btn-u">Submit</button></p>
@@ -92,7 +97,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-
+        
         //Does not need to be document on
         $(document).on('submit', '#contributionForm', function () {
       
@@ -129,7 +134,7 @@
                                   // alert(escapeHtml(msg.d));
                                   // Do something interesting here.
                                   // $("#content").html("<samp>" + escapeHtml(msg.d) + "</samp>");
-                                  location.href = "contributions.aspx";
+                               //   location.href = "contributions.aspx";
                               }
                           });
 

@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddDonation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userHash" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="creditUnion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="category" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="onclock" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="offclock" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dollars" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="otherContributions" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="latitude" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="longitude" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="additionalInfo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="donationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDonationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddDonationResult" type="tns:Donation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Donation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DonatingCreditUnion" type="tns:CreditUnion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Category" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OnClockHours" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OffClockHours" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalHours" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Dollars" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OtherContributionsValue" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalDollarValue" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInfo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DonationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateAdded" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CreditUnion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Abbr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Website" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteDonation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userHash" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDonationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateDonation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userHash" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="creditUnion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="category" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="onclock" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="offclock" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dollars" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="otherContributions" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="latitude" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="longitude" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="additionalInfo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="donationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDonationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDonationResult" type="tns:Donation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDonationResult" type="tns:Donation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationsByCreditUnion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="creditUnion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationsByCreditUnionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDonationsByCreditUnionResult" type="tns:ArrayOfDonation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDonation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Donation" nillable="true" type="tns:Donation" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDonationsByCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="category" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationsByCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDonationsByCategoryResult" type="tns:ArrayOfDonation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationsByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationsByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDonationsByDateResult" type="tns:ArrayOfDonation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Donation" nillable="true" type="tns:Donation" />
+      <s:element name="ArrayOfDonation" nillable="true" type="tns:ArrayOfDonation" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddDonationSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDonation" />
+  </wsdl:message>
+  <wsdl:message name="AddDonationSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDonationResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDonationSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDonation" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDonationSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDonationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDonationSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDonation" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDonationSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDonationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDonation" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDonationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCreditUnionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDonationsByCreditUnion" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCreditUnionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDonationsByCreditUnionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetDonationsByCategory" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetDonationsByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDonationsByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDonationsByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDonationHttpGetIn">
+    <wsdl:part name="userHash" type="s:string" />
+    <wsdl:part name="creditUnion" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="onclock" type="s:string" />
+    <wsdl:part name="offclock" type="s:string" />
+    <wsdl:part name="dollars" type="s:string" />
+    <wsdl:part name="otherContributions" type="s:string" />
+    <wsdl:part name="address1" type="s:string" />
+    <wsdl:part name="address2" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="state" type="s:string" />
+    <wsdl:part name="zip" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="latitude" type="s:string" />
+    <wsdl:part name="longitude" type="s:string" />
+    <wsdl:part name="additionalInfo" type="s:string" />
+    <wsdl:part name="donationDate" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddDonationHttpGetOut">
+    <wsdl:part name="Body" element="tns:Donation" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDonationHttpGetIn">
+    <wsdl:part name="userHash" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDonationHttpGetOut" />
+  <wsdl:message name="UpdateDonationHttpGetIn">
+    <wsdl:part name="userHash" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="creditUnion" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="onclock" type="s:string" />
+    <wsdl:part name="offclock" type="s:string" />
+    <wsdl:part name="dollars" type="s:string" />
+    <wsdl:part name="otherContributions" type="s:string" />
+    <wsdl:part name="address1" type="s:string" />
+    <wsdl:part name="address2" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="state" type="s:string" />
+    <wsdl:part name="zip" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="latitude" type="s:string" />
+    <wsdl:part name="longitude" type="s:string" />
+    <wsdl:part name="additionalInfo" type="s:string" />
+    <wsdl:part name="donationDate" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDonationHttpGetOut">
+    <wsdl:part name="Body" element="tns:Donation" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationHttpGetOut">
+    <wsdl:part name="Body" element="tns:Donation" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCreditUnionHttpGetIn">
+    <wsdl:part name="creditUnion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCreditUnionHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDonation" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCategoryHttpGetIn">
+    <wsdl:part name="category" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCategoryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDonation" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByDateHttpGetIn">
+    <wsdl:part name="start" type="s:string" />
+    <wsdl:part name="end" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDonation" />
+  </wsdl:message>
+  <wsdl:message name="AddDonationHttpPostIn">
+    <wsdl:part name="userHash" type="s:string" />
+    <wsdl:part name="creditUnion" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="onclock" type="s:string" />
+    <wsdl:part name="offclock" type="s:string" />
+    <wsdl:part name="dollars" type="s:string" />
+    <wsdl:part name="otherContributions" type="s:string" />
+    <wsdl:part name="address1" type="s:string" />
+    <wsdl:part name="address2" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="state" type="s:string" />
+    <wsdl:part name="zip" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="latitude" type="s:string" />
+    <wsdl:part name="longitude" type="s:string" />
+    <wsdl:part name="additionalInfo" type="s:string" />
+    <wsdl:part name="donationDate" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddDonationHttpPostOut">
+    <wsdl:part name="Body" element="tns:Donation" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDonationHttpPostIn">
+    <wsdl:part name="userHash" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDonationHttpPostOut" />
+  <wsdl:message name="UpdateDonationHttpPostIn">
+    <wsdl:part name="userHash" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="creditUnion" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="onclock" type="s:string" />
+    <wsdl:part name="offclock" type="s:string" />
+    <wsdl:part name="dollars" type="s:string" />
+    <wsdl:part name="otherContributions" type="s:string" />
+    <wsdl:part name="address1" type="s:string" />
+    <wsdl:part name="address2" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="state" type="s:string" />
+    <wsdl:part name="zip" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="latitude" type="s:string" />
+    <wsdl:part name="longitude" type="s:string" />
+    <wsdl:part name="additionalInfo" type="s:string" />
+    <wsdl:part name="donationDate" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDonationHttpPostOut">
+    <wsdl:part name="Body" element="tns:Donation" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationHttpPostOut">
+    <wsdl:part name="Body" element="tns:Donation" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCreditUnionHttpPostIn">
+    <wsdl:part name="creditUnion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCreditUnionHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDonation" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCategoryHttpPostIn">
+    <wsdl:part name="category" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByCategoryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDonation" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByDateHttpPostIn">
+    <wsdl:part name="start" type="s:string" />
+    <wsdl:part name="end" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationsByDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDonation" />
+  </wsdl:message>
+  <wsdl:portType name="DonationServiceSoap">
+    <wsdl:operation name="AddDonation">
+      <wsdl:input message="tns:AddDonationSoapIn" />
+      <wsdl:output message="tns:AddDonationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDonation">
+      <wsdl:input message="tns:DeleteDonationSoapIn" />
+      <wsdl:output message="tns:DeleteDonationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDonation">
+      <wsdl:input message="tns:UpdateDonationSoapIn" />
+      <wsdl:output message="tns:UpdateDonationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonation">
+      <wsdl:input message="tns:GetDonationSoapIn" />
+      <wsdl:output message="tns:GetDonationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCreditUnion">
+      <wsdl:input message="tns:GetDonationsByCreditUnionSoapIn" />
+      <wsdl:output message="tns:GetDonationsByCreditUnionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCategory">
+      <wsdl:input message="tns:GetDonationsByCategorySoapIn" />
+      <wsdl:output message="tns:GetDonationsByCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByDate">
+      <wsdl:input message="tns:GetDonationsByDateSoapIn" />
+      <wsdl:output message="tns:GetDonationsByDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DonationServiceHttpGet">
+    <wsdl:operation name="AddDonation">
+      <wsdl:input message="tns:AddDonationHttpGetIn" />
+      <wsdl:output message="tns:AddDonationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDonation">
+      <wsdl:input message="tns:DeleteDonationHttpGetIn" />
+      <wsdl:output message="tns:DeleteDonationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDonation">
+      <wsdl:input message="tns:UpdateDonationHttpGetIn" />
+      <wsdl:output message="tns:UpdateDonationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonation">
+      <wsdl:input message="tns:GetDonationHttpGetIn" />
+      <wsdl:output message="tns:GetDonationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCreditUnion">
+      <wsdl:input message="tns:GetDonationsByCreditUnionHttpGetIn" />
+      <wsdl:output message="tns:GetDonationsByCreditUnionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCategory">
+      <wsdl:input message="tns:GetDonationsByCategoryHttpGetIn" />
+      <wsdl:output message="tns:GetDonationsByCategoryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByDate">
+      <wsdl:input message="tns:GetDonationsByDateHttpGetIn" />
+      <wsdl:output message="tns:GetDonationsByDateHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DonationServiceHttpPost">
+    <wsdl:operation name="AddDonation">
+      <wsdl:input message="tns:AddDonationHttpPostIn" />
+      <wsdl:output message="tns:AddDonationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDonation">
+      <wsdl:input message="tns:DeleteDonationHttpPostIn" />
+      <wsdl:output message="tns:DeleteDonationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDonation">
+      <wsdl:input message="tns:UpdateDonationHttpPostIn" />
+      <wsdl:output message="tns:UpdateDonationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonation">
+      <wsdl:input message="tns:GetDonationHttpPostIn" />
+      <wsdl:output message="tns:GetDonationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCreditUnion">
+      <wsdl:input message="tns:GetDonationsByCreditUnionHttpPostIn" />
+      <wsdl:output message="tns:GetDonationsByCreditUnionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCategory">
+      <wsdl:input message="tns:GetDonationsByCategoryHttpPostIn" />
+      <wsdl:output message="tns:GetDonationsByCategoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByDate">
+      <wsdl:input message="tns:GetDonationsByDateHttpPostIn" />
+      <wsdl:output message="tns:GetDonationsByDateHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DonationServiceSoap" type="tns:DonationServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDonation">
+      <soap:operation soapAction="http://tempuri.org/AddDonation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDonation">
+      <soap:operation soapAction="http://tempuri.org/DeleteDonation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDonation">
+      <soap:operation soapAction="http://tempuri.org/UpdateDonation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonation">
+      <soap:operation soapAction="http://tempuri.org/GetDonation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCreditUnion">
+      <soap:operation soapAction="http://tempuri.org/GetDonationsByCreditUnion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCategory">
+      <soap:operation soapAction="http://tempuri.org/GetDonationsByCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByDate">
+      <soap:operation soapAction="http://tempuri.org/GetDonationsByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DonationServiceSoap12" type="tns:DonationServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDonation">
+      <soap12:operation soapAction="http://tempuri.org/AddDonation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDonation">
+      <soap12:operation soapAction="http://tempuri.org/DeleteDonation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDonation">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDonation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonation">
+      <soap12:operation soapAction="http://tempuri.org/GetDonation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCreditUnion">
+      <soap12:operation soapAction="http://tempuri.org/GetDonationsByCreditUnion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCategory">
+      <soap12:operation soapAction="http://tempuri.org/GetDonationsByCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetDonationsByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DonationServiceHttpGet" type="tns:DonationServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AddDonation">
+      <http:operation location="/AddDonation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDonation">
+      <http:operation location="/DeleteDonation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDonation">
+      <http:operation location="/UpdateDonation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonation">
+      <http:operation location="/GetDonation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCreditUnion">
+      <http:operation location="/GetDonationsByCreditUnion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCategory">
+      <http:operation location="/GetDonationsByCategory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByDate">
+      <http:operation location="/GetDonationsByDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DonationServiceHttpPost" type="tns:DonationServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AddDonation">
+      <http:operation location="/AddDonation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDonation">
+      <http:operation location="/DeleteDonation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDonation">
+      <http:operation location="/UpdateDonation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonation">
+      <http:operation location="/GetDonation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCreditUnion">
+      <http:operation location="/GetDonationsByCreditUnion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByCategory">
+      <http:operation location="/GetDonationsByCategory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsByDate">
+      <http:operation location="/GetDonationsByDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DonationService">
+    <wsdl:port name="DonationServiceSoap" binding="tns:DonationServiceSoap">
+      <soap:address location="http://54.186.69.152/services/DonationService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DonationServiceSoap12" binding="tns:DonationServiceSoap12">
+      <soap12:address location="http://54.186.69.152/services/DonationService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DonationServiceHttpGet" binding="tns:DonationServiceHttpGet">
+      <http:address location="http://54.186.69.152/services/DonationService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DonationServiceHttpPost" binding="tns:DonationServiceHttpPost">
+      <http:address location="http://54.186.69.152/services/DonationService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

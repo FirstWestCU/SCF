@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetProjectCategoryDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjectCategoryDescriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProjectCategoryDescriptionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationCategoryDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationCategoryDescriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDonationCategoryDescriptionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjectCategoryID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjectCategoryIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetProjectCategoryIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationCategoryID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationCategoryIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDonationCategoryIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjectCategories">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProjectCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProjectCategoriesResult" type="tns:ArrayOfCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Category">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDonationCategories">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDonationCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDonationCategoriesResult" type="tns:ArrayOfCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+      <s:element name="ArrayOfCategory" nillable="true" type="tns:ArrayOfCategory" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetProjectCategoryDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjectCategoryDescription" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectCategoryDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDonationCategoryDescription" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDonationCategoryDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjectCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDonationCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDonationCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjectCategories" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDonationCategories" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDonationCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryDescriptionHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryDescriptionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryDescriptionHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryDescriptionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryIDHttpGetIn">
+    <wsdl:part name="description" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryIDHttpGetIn">
+    <wsdl:part name="description" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoriesHttpGetIn" />
+  <wsdl:message name="GetProjectCategoriesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCategory" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoriesHttpGetIn" />
+  <wsdl:message name="GetDonationCategoriesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCategory" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryDescriptionHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryDescriptionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryDescriptionHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryDescriptionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryIDHttpPostIn">
+    <wsdl:part name="description" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoryIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryIDHttpPostIn">
+    <wsdl:part name="description" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoryIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCategoriesHttpPostIn" />
+  <wsdl:message name="GetProjectCategoriesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCategory" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCategoriesHttpPostIn" />
+  <wsdl:message name="GetDonationCategoriesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCategory" />
+  </wsdl:message>
+  <wsdl:portType name="CategoryServiceSoap">
+    <wsdl:operation name="GetProjectCategoryDescription">
+      <wsdl:input message="tns:GetProjectCategoryDescriptionSoapIn" />
+      <wsdl:output message="tns:GetProjectCategoryDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryDescription">
+      <wsdl:input message="tns:GetDonationCategoryDescriptionSoapIn" />
+      <wsdl:output message="tns:GetDonationCategoryDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategoryID">
+      <wsdl:input message="tns:GetProjectCategoryIDSoapIn" />
+      <wsdl:output message="tns:GetProjectCategoryIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryID">
+      <wsdl:input message="tns:GetDonationCategoryIDSoapIn" />
+      <wsdl:output message="tns:GetDonationCategoryIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategories">
+      <wsdl:input message="tns:GetProjectCategoriesSoapIn" />
+      <wsdl:output message="tns:GetProjectCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategories">
+      <wsdl:input message="tns:GetDonationCategoriesSoapIn" />
+      <wsdl:output message="tns:GetDonationCategoriesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CategoryServiceHttpGet">
+    <wsdl:operation name="GetProjectCategoryDescription">
+      <wsdl:input message="tns:GetProjectCategoryDescriptionHttpGetIn" />
+      <wsdl:output message="tns:GetProjectCategoryDescriptionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryDescription">
+      <wsdl:input message="tns:GetDonationCategoryDescriptionHttpGetIn" />
+      <wsdl:output message="tns:GetDonationCategoryDescriptionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategoryID">
+      <wsdl:input message="tns:GetProjectCategoryIDHttpGetIn" />
+      <wsdl:output message="tns:GetProjectCategoryIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryID">
+      <wsdl:input message="tns:GetDonationCategoryIDHttpGetIn" />
+      <wsdl:output message="tns:GetDonationCategoryIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategories">
+      <wsdl:input message="tns:GetProjectCategoriesHttpGetIn" />
+      <wsdl:output message="tns:GetProjectCategoriesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategories">
+      <wsdl:input message="tns:GetDonationCategoriesHttpGetIn" />
+      <wsdl:output message="tns:GetDonationCategoriesHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CategoryServiceHttpPost">
+    <wsdl:operation name="GetProjectCategoryDescription">
+      <wsdl:input message="tns:GetProjectCategoryDescriptionHttpPostIn" />
+      <wsdl:output message="tns:GetProjectCategoryDescriptionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryDescription">
+      <wsdl:input message="tns:GetDonationCategoryDescriptionHttpPostIn" />
+      <wsdl:output message="tns:GetDonationCategoryDescriptionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategoryID">
+      <wsdl:input message="tns:GetProjectCategoryIDHttpPostIn" />
+      <wsdl:output message="tns:GetProjectCategoryIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryID">
+      <wsdl:input message="tns:GetDonationCategoryIDHttpPostIn" />
+      <wsdl:output message="tns:GetDonationCategoryIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategories">
+      <wsdl:input message="tns:GetProjectCategoriesHttpPostIn" />
+      <wsdl:output message="tns:GetProjectCategoriesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategories">
+      <wsdl:input message="tns:GetDonationCategoriesHttpPostIn" />
+      <wsdl:output message="tns:GetDonationCategoriesHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CategoryServiceSoap" type="tns:CategoryServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProjectCategoryDescription">
+      <soap:operation soapAction="http://tempuri.org/GetProjectCategoryDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryDescription">
+      <soap:operation soapAction="http://tempuri.org/GetDonationCategoryDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategoryID">
+      <soap:operation soapAction="http://tempuri.org/GetProjectCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryID">
+      <soap:operation soapAction="http://tempuri.org/GetDonationCategoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategories">
+      <soap:operation soapAction="http://tempuri.org/GetProjectCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategories">
+      <soap:operation soapAction="http://tempuri.org/GetDonationCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CategoryServiceSoap12" type="tns:CategoryServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProjectCategoryDescription">
+      <soap12:operation soapAction="http://tempuri.org/GetProjectCategoryDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryDescription">
+      <soap12:operation soapAction="http://tempuri.org/GetDonationCategoryDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategoryID">
+      <soap12:operation soapAction="http://tempuri.org/GetProjectCategoryID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryID">
+      <soap12:operation soapAction="http://tempuri.org/GetDonationCategoryID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategories">
+      <soap12:operation soapAction="http://tempuri.org/GetProjectCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategories">
+      <soap12:operation soapAction="http://tempuri.org/GetDonationCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CategoryServiceHttpGet" type="tns:CategoryServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetProjectCategoryDescription">
+      <http:operation location="/GetProjectCategoryDescription" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryDescription">
+      <http:operation location="/GetDonationCategoryDescription" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategoryID">
+      <http:operation location="/GetProjectCategoryID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryID">
+      <http:operation location="/GetDonationCategoryID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategories">
+      <http:operation location="/GetProjectCategories" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategories">
+      <http:operation location="/GetDonationCategories" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CategoryServiceHttpPost" type="tns:CategoryServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetProjectCategoryDescription">
+      <http:operation location="/GetProjectCategoryDescription" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryDescription">
+      <http:operation location="/GetDonationCategoryDescription" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategoryID">
+      <http:operation location="/GetProjectCategoryID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategoryID">
+      <http:operation location="/GetDonationCategoryID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCategories">
+      <http:operation location="/GetProjectCategories" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCategories">
+      <http:operation location="/GetDonationCategories" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CategoryService">
+    <wsdl:port name="CategoryServiceSoap" binding="tns:CategoryServiceSoap">
+      <soap:address location="http://54.186.69.152/services/CategoryService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CategoryServiceSoap12" binding="tns:CategoryServiceSoap12">
+      <soap12:address location="http://54.186.69.152/services/CategoryService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CategoryServiceHttpGet" binding="tns:CategoryServiceHttpGet">
+      <http:address location="http://54.186.69.152/services/CategoryService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CategoryServiceHttpPost" binding="tns:CategoryServiceHttpPost">
+      <http:address location="http://54.186.69.152/services/CategoryService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
