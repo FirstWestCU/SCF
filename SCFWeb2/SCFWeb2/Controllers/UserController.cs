@@ -7,12 +7,15 @@ using System.Web.Mvc;
 namespace SCFWeb2.Controllers
 {
 
+
+
     public class UserController : Controller
     {
 
-
-        // protected CreditUnionService.CreditUnion[] creditUnionList;
-        // protected CategoryService.Category[] categoryList;
+        CreditUnionService.CreditUnionServiceSoap creditUnionService = new CreditUnionService.CreditUnionServiceSoapClient("CreditUnionServiceSoap");
+    
+        CategoryService.CategoryServiceSoap categoryService = new CategoryService.CategoryServiceSoapClient("CategoryServiceSoap");
+         
 
         // GET: User
         public ActionResult Index()
@@ -25,11 +28,7 @@ namespace SCFWeb2.Controllers
         public ActionResult Registration()
         {
 
-            CreditUnionService.CreditUnionServiceSoap creditUnionService = new CreditUnionService.CreditUnionServiceSoapClient("CreditUnionServiceSoap");
-            // creditUnionList = creditUnionService.GetAllCreditUnions();
-
-            CategoryService.CategoryServiceSoap categoryService = new CategoryService.CategoryServiceSoapClient("CategoryServiceSoap");
-            // categoryList = categoryService.GetProjectCategories();
+          
 
             ViewBag.categoryList = categoryService.GetDonationCategories();
             ViewBag.creditUnionList = creditUnionService.GetAllCreditUnions();
@@ -38,32 +37,52 @@ namespace SCFWeb2.Controllers
         }
 
 
-        public ActionResult ProcessRegistration(string firstName, string lastName, string emailAddress, string creditUnionId, string password, string passwordConfirm)
+        [HttpPost]
+        public ActionResult Registration(string firstName, string lastName, string emailAddress, string creditUnionId, string password, string passwordConfirm)
         {
 
+           List<string> errorMessages = new List<string>();
 
 
             //Check mandatories
             if (String.IsNullOrEmpty(emailAddress))
             {
-              //  ModelState.AddModelError();
+                errorMessages.Add("Email Address is a required field");
             }
 
-            //Check mandatories
-            if (String.IsNullOrEmpty(creditUnionId))
-            {
-
-            }
 
             if (String.IsNullOrEmpty(password))
             {
-
+                   errorMessages.Add("Password is a required field");
             }
 
 
 
 
-            return Redirect("Registration");
+            if (errorMessages.Count >0){
+                ViewBag.errorMessages = errorMessages;
+                ViewBag.categoryList = categoryService.GetDonationCategories();
+                ViewBag.creditUnionList = creditUnionService.GetAllCreditUnions();
+                return View();
+
+            //Next level of validation
+            }else if (password !=passwordConfirm ){
+                    errorMessages.Add("The Password fields did not match.");
+                    ViewBag.errorMessages = errorMessages;
+                    ViewBag.categoryList = categoryService.GetDonationCategories();
+                    ViewBag.creditUnionList = creditUnionService.GetAllCreditUnions();
+                    return View();
+                
+            //Else hunky dory
+            }else{
+
+                //Need the voting windows
+                UserService.UserServiceSoap userService = new UserService.UserServiceSoapClient("UserServiceSoap");
+                userService.CreateUser(firstName + " " + lastName, emailAddress, password,Convert.ToInt32(creditUnionId));
+
+                TempData["successMessage"] = "You have successfully registered and may log in.";
+                return Redirect("Registration");
+            }
         }
 
 
@@ -82,12 +101,43 @@ namespace SCFWeb2.Controllers
 
 
         [HttpPost]
-        public ActionResult ProcessLogin(string userName, string password)
+        public ActionResult Login(string userName, string password)
         {
 
 
-            MemberService.MemberServiceSoap memberService = new MemberService.MemberServiceSoapClient("MemberServiceSoap");
-            return Redirect("Registration");
+            UserService.UserServiceSoap userService = new UserService.UserServiceSoapClient("UserServiceSoap");
+            UserService.User user = userService.AuthenticateUser(userName,password);
+
+            if (user == null)
+            {
+                ViewBag.errorMessage="Log in not successful";
+                return Redirect("/User/Login");
+            }else if (String.IsNullOrEmpty(user.Email))
+            {
+                ViewBag.errorMessage = "Log in not successful";
+                return Redirect("/User/Login");
+
+            }
+            else
+            {
+               
+
+                Session["userHash"] = user.Hash;
+
+                TempData["successMessage"] = "You have successfully registered and may log in.";
+                return Redirect("/Home");
+            }
+
+            
+        }
+
+
+        public ActionResult Logout()
+        {
+
+            Session.Abandon();
+            TempData["successMessage"] = "You have successfully logged out.";
+            return Redirect("/Home");
         }
 
     }

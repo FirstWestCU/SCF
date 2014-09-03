@@ -47,15 +47,15 @@
             <div class="container">
                 <!-- Topbar Navigation -->
                 <ul class="loginbar pull-right">
-@if (Session["MemberHash"]==null){
+@if (Session["UserHash"]==null){
 
 
-                    <li><a href="/User/login">Login</a></li>
+                    <li><a href="/User/Login">Login</a></li>
 
 }else{
    
    
-                    <li><a id="logout" href="/Logout">Logout</a></li>
+                    <li><a id="logout" href="/User/Logout">Logout</a></li>
 }
 
 
@@ -166,35 +166,82 @@
         <!-- End Navbar -->
     </div>
     <!--=== End Header ===-->
-    @RenderBody()
 
 
 
-
-
-
-    <!--=== Copyright ===-->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>
-                        2014 &copy;  ALL Rights Reserved.
-                        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <a href="index.aspx">
-                        <img class="pull-right" id="logo-footer" src="/assets/img/scf/logo.png" alt="">
-                    </a>
+    
+        @if (ViewBag.errorMessages != null)
+        {
+            <div class="container">
+                <div class="row alert alert-danger alert-dismissable fade in">
+                    <h4>Please correct the following errors and try again</h4>
+                    <ul>
+                        @foreach (string errorMessage in ViewBag.errorMessages)
+                    {
+                            <li>
+                                @errorMessage
+                            </li>
+                    }
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div><!--/copyright-->
-    <!--=== End Copyright ===-->
+        }
+        
 
-</div>
-   
+    @if (ViewBag.errorMessage != null)
+    {
+        <div class="container">
+            <div class="row alert alert-danger alert-dismissable fade in">
+                <h4>Whoops!  Please correct the following error and try again</h4>
+                <p>@ViewBag.errorMessage</p>
+            </div>
+        </div>
+    }
+    
+    @if (TempData["successMessage"] != null)
+    {
+        <div class="container">
+            <div class="row alert alert-success alert-dismissable fade in">
+                <h4>Success</h4>
+                <p>@TempData["successMessage"]</p>
+            </div>
+        </div>
+    }
+
+
+
+
+
+
+                @RenderBody()
+
+
+
+
+
+
+                <!--=== Copyright ===-->
+                <div class="copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>
+                                    2014 &copy;  ALL Rights Reserved.
+                                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="index.aspx">
+                                    <img class="pull-right" id="logo-footer" src="/assets/img/scf/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/copyright-->
+                <!--=== End Copyright ===-->
+
+            </div>
+
     <!-- JS Implementing Plugins -->
     <script type="text/javascript" src="/assets/plugins/back-to-top.js"></script>
     <script type="text/javascript" src="/assets/plugins/flexslider/jquery.flexslider-min.js"></script>
