@@ -1523,6 +1523,7 @@
     <Content Include="assets\plugins\vector-map\build.sh" />
     <Content Include="assets\plugins\vector-map\jvectormap.jquery.json" />
     <Content Include="assets\plugins\vector-map\README.md" />
+    <None Include="Properties\PublishProfiles\A3 Deploy Files.pubxml" />
     <None Include="Properties\PublishProfiles\Local IIS 6.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
