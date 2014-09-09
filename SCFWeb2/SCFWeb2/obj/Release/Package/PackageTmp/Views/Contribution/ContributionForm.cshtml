@@ -1,0 +1,171 @@
+﻿@model SCFWeb2.Models.ContributionViewModel
+    
+<div class="container content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+                <h1>Enter Contribution Information</h1>
+
+@using (Html.BeginForm("ContributionForm", "Contribution", FormMethod.Post,
+                                      new { enctype = "multipart/form-data" }))
+{
+
+    <fieldset>
+
+        <div class="form-group">
+            <label>Credit Union Name</label>
+            @Html.DropDownListFor(model => model.creditUnionId, (SelectList)ViewBag.creditUnionList, new { @class = "form-control margin-bottom-20" })
+        </div>
+
+        <div class="form-group">
+            <label>Contribution Category</label>
+            @Html.DropDownListFor(model => model.categoryId, (SelectList)ViewBag.categoryList, new { @class = "form-control margin-bottom-20" })
+        </div>
+
+
+        <div class="form-group">
+                <label>Charity or Organization Name</label>
+                @Html.TextBoxFor(model => model.charityName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.charityName, null, new { @class = "help-block" })
+        </div>
+
+
+        <div class="form-group">
+            <label>Charity or Organization Address 1</label>
+            @Html.TextBoxFor(model => model.address1, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.address1, null, new { @class = "help-block" })
+        </div>
+            <div>
+                <label>Address 2</label>
+                @Html.TextBoxFor(model => model.address2, new { @class = "form-control margin-bottom-20" })
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-6 form-group">
+                    <label>City</label>
+                    @Html.TextBoxFor(model => model.city, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.city, null, new { @class = "help-block" })
+                </div>
+                <div class="col-lg-3 form-group">
+                    <label>State/Province</label>
+                    @Html.TextBoxFor(model => model.provState, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.provState, null, new { @class = "help-block" })
+                </div>
+                <div class="col-lg-3 form-group">
+                    <label>ZIP/Postal Code</label>
+                    @Html.TextBoxFor(model => model.postalZip, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.postalZip, null, new { @class = "help-block" })
+                </div>
+            </div>
+            <div>
+                <label>Country</label>
+                <select id="country" name="country" class="form-control margin-bottom-20">
+                    <option value="Canada">Canada</option>
+                    <option value="United States">United States</option>
+                </select>
+            </div>
+
+
+        <div class="form-group">
+            <label>Contributed Volunteer Hours</label>
+            @Html.TextBoxFor(model => model.volunteerHours, new { @class = "form-control margin-bottom-20" })
+        </div>
+
+        <div class="form-group">
+            <label>Contributed Dollar Value</label>
+            <div class="input-group ">
+                <span class="input-group-addon">$</span>
+                @Html.TextBoxFor(model => model.amount, new { @class = "form-control " })
+                <span class="input-group-addon">.00</span>
+            </div>
+            @Html.ValidationMessageFor(model => model.amount, null, new { @class = "help-block" })
+        </div>
+
+
+        <div class="form-group">
+            <label>Other Contributions (non monetary equivalency)</label>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon">$</span>
+                @Html.TextBoxFor(model => model.contributedDollarValue, new { @class = "form-control " })
+                <span class="input-group-addon">.00</span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Charity Description</label>
+            @Html.TextAreaFor(model => model.description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.description, null, new { @class = "help-block" })
+        </div>
+
+        <div class="form-group">
+            <label for="image1">Provide an image</label>
+            <input id="myfile" name="file" type="file" class="form-control margin-bottom-20">
+        </div>
+
+        <div class="form-group">
+            <p><button id="contributionFormButton" type="submit" class="btn-u form-control margin-bottom-20">Submit</button></p>
+        </div>
+
+</fieldset>
+}
+
+</div>
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        
+        $(function () {
+            // any validation summary items should be encapsulated by a class alert and alert-danger
+            $('.validation-summary-errors').each(function () {
+                $(this).addClass('alert');
+                $(this).addClass('alert-danger');
+            });
+
+            // update validation fields on submission of form
+            $('form').submit(function () {
+                if ($(this).valid()) {
+                    $(this).find('div.control-group').each(function () {
+                        if ($(this).find('span.field-validation-error').length == 0) {
+                            $(this).removeClass('has-error');
+                            $(this).addClass('has-success');
+                        }
+                    });
+                }
+                else {
+                    $(this).find('div.control-group').each(function () {
+                        if ($(this).find('span.field-validation-error').length > 0) {
+                            $(this).removeClass('has-success');
+                            $(this).addClass('has-error');
+                        }
+                    });
+                    $('.validation-summary-errors').each(function () {
+                        if ($(this).hasClass('alert-danger') == false) {
+                            $(this).addClass('alert');
+                            $(this).addClass('alert-danger');
+                        }
+                    });
+                }
+            });
+
+            // check each form-group for errors on ready
+            $('form').each(function () {
+                $(this).find('div.form-group').each(function () {
+                    if ($(this).find('span.field-validation-error').length > 0) {
+                        $(this).addClass('has-error');
+                    }
+                });
+            });
+        });
+
+       
+    
+    });
+</script>
