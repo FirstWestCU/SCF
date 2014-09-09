@@ -124,7 +124,7 @@ namespace SCFWeb2.Controllers
 
                 Session["userHash"] = user.Hash;
 
-                TempData["successMessage"] = "You have successfully registered and may log in.";
+                TempData["successMessage"] = "You have successfully logged in.";
                 return Redirect("/Home");
             }
 

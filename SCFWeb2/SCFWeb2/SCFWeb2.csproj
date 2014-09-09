@@ -163,7 +163,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\ContributionsController.cs" />
+    <Compile Include="Controllers\ContributionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MapsController.cs" />
@@ -174,6 +174,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContributionModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1525,6 +1526,7 @@
     <Content Include="assets\plugins\vector-map\README.md" />
     <None Include="Properties\PublishProfiles\A3 Deploy Files.pubxml" />
     <None Include="Properties\PublishProfiles\Local IIS 6.pubxml" />
+    <None Include="Properties\PublishProfiles\S3 Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1648,8 +1650,8 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\UserService\UserService.wsdl" />
-    <Content Include="Views\Contributions\Index.cshtml" />
-    <Content Include="Views\Contributions\ContributionForm.cshtml" />
+    <Content Include="Views\Contribution\Index.cshtml" />
+    <Content Include="Views\Contribution\ContributionForm.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Maps\Index.cshtml" />
@@ -1659,6 +1661,8 @@
     <Content Include="Views\Shared\_LayoutStripped.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Shared\_MessagesPartial.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Projects\Project.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

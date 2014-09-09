@@ -98,7 +98,7 @@
                        
                         <!-- Contributions -->
                         <li class="">
-                            <a href="/Contributions">
+                            <a href="/Contribution">
                                 Contributions
                             </a>
                         </li>
@@ -197,6 +197,17 @@
             </div>
         </div>
     }
+    
+    @if (TempData["errorMessage"] != null)
+    {
+        <div class="container">
+            <div class="row alert alert-success alert-dismissable fade in">
+                <h4>Whoops!  Please correct the following error and try again</h4>
+                <p>@TempData["errorMessage"]</p>
+            </div>
+        </div>
+    }
+
     
     @if (TempData["successMessage"] != null)
     {

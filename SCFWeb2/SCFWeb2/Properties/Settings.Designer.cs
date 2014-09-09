@@ -22,14 +22,5 @@ namespace SCFWeb2.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Temp\\")]
-        public string FileUploadDir {
-            get {
-                return ((string)(this["FileUploadDir"]));
-            }
-        }
     }
 }
