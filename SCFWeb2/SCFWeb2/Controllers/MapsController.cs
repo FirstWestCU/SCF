@@ -16,6 +16,11 @@ namespace SCFWeb2.Controllers
             List<Tuple<double, double>> indianapolisContributionLocations= new List<Tuple<double, double>>();
             List<Tuple<double, double>> coloradoContributionLocations= new List<Tuple<double, double>>();
 
+            //Testing - may be able to get rid of Tuple lists
+            List<DonationService.Donation> canadianDonations = new List<DonationService.Donation>();
+            List<DonationService.Donation> indianapolisDonations = new List<DonationService.Donation>();
+            List<DonationService.Donation> coloradoDonations = new List<DonationService.Donation>();
+
             //First - get all credit unions
             CreditUnionService.CreditUnionServiceSoap creditUnionService = new CreditUnionService.CreditUnionServiceSoapClient("CreditUnionServiceSoap");
             CreditUnionService.CreditUnion[] creditUnionList= creditUnionService.GetAllCreditUnions();
@@ -35,14 +40,17 @@ namespace SCFWeb2.Controllers
                         //donation.Latitude;
                         //donation.Longitude;
                         canadianContributionLocations.Add(Tuple.Create(donation.Latitude, donation.Longitude));
+                        canadianDonations.Add(donation);
                     }
                     else if (donation.DonatingCreditUnion.ID == 1)
                     {
                         coloradoContributionLocations.Add(Tuple.Create(donation.Latitude, donation.Longitude));
+                        coloradoDonations.Add(donation);
                     }
                     else if (donation.DonatingCreditUnion.ID == 3)
                     {
                         indianapolisContributionLocations.Add(Tuple.Create(donation.Latitude, donation.Longitude));
+                        indianapolisDonations.Add(donation);
                     }
                  
                 }
@@ -52,6 +60,11 @@ namespace SCFWeb2.Controllers
             ViewBag.canadianContributionLocations = canadianContributionLocations;
             ViewBag.indianapolisContributionLocations = indianapolisContributionLocations;
             ViewBag.coloradoContributionLocations = coloradoContributionLocations;
+
+            ViewBag.canadianDonations = canadianDonations;
+            ViewBag.indianapolisDonations = indianapolisDonations;
+            ViewBag.coloradoDonations = coloradoDonations;
+
 
             return View();
         }

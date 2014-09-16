@@ -81,7 +81,7 @@ namespace SCFWeb2.Controllers
                 userService.CreateUser(firstName + " " + lastName, emailAddress, password,Convert.ToInt32(creditUnionId));
 
                 TempData["successMessage"] = "You have successfully registered and may log in.";
-                return Redirect("Registration");
+                return Redirect("Login");
             }
         }
 

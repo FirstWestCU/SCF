@@ -51,7 +51,7 @@ namespace SCFWeb2.Models
         public string otherContributions { get; set; }
         
         [Required(ErrorMessage = "Charity/Organization Description is required")]
-        [StringLength(50, MinimumLength = 4, ErrorMessage = "Charity/Organization must be at least 4 characters long")]
+        [StringLength(500, MinimumLength = 4, ErrorMessage = "Charity/Organization must be at least 4 characters long")]
         public string description { get; set; }
         
         

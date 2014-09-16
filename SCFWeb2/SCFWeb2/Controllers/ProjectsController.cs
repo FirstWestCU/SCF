@@ -17,6 +17,10 @@ namespace SCFWeb2.Controllers
 
             ProjectService.ProjectServiceSoap projectService = new ProjectService.ProjectServiceSoapClient("ProjectServiceSoap");
             ViewBag.projects = projectService.GetAllProjects();
+
+            //Temp stuff for deleting projects
+            //projectService.DeleteProject("ABC",1);
+
             return View();
         }
 

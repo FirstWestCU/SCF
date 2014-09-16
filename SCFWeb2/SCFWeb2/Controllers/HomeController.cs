@@ -10,14 +10,38 @@ namespace SCFWeb2.Controllers
     {
 
         protected CategoryService.CategoryServiceSoap categoryService = new CategoryService.CategoryServiceSoapClient("CategoryServiceSoap");
-       // protected CategoryService.Category[] categories;
 
         protected DonationService.DonationServiceSoap donationService = new DonationService.DonationServiceSoapClient("DonationServiceSoap");
-       // protected 
+
+        protected CreditUnionService.CreditUnionServiceSoap creditUnionService = new CreditUnionService.CreditUnionServiceSoapClient("CreditUnionServiceSoap");
+
 
         public ActionResult Index()
         {
-            
+
+            int totalContributions = 0;
+            int totalContributedDollars = 0;
+            int totalContributedHours = 0;
+            int totalCreditUnions = 0;
+
+            //Get all Contribution details
+            DateTime startDate = DateTime.Now.AddDays(-1000);
+            DateTime endDate = DateTime.Now.AddDays(1000);
+            DonationService.Donation[] donations = donationService.GetDonationsByDate(startDate, endDate);
+            foreach (DonationService.Donation donation in donations)
+            {
+                totalContributions++;
+                totalContributedDollars += donation.Dollars;
+                totalContributedHours += donation.OnClockHours;
+            }
+
+            totalCreditUnions = creditUnionService.GetAllCreditUnions().Length;
+
+            ViewBag.totalContributions = totalContributions;
+            ViewBag.totalContributedDollars = totalContributedDollars;
+            ViewBag.totalContributedHours = totalContributedHours;
+            ViewBag.totalCreditUnions = totalCreditUnions;
+
             ViewBag.categories = categoryService.GetProjectCategories();
             return View();
         }

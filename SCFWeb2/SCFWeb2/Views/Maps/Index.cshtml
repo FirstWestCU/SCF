@@ -51,6 +51,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
+        var iconBase = '/assets/img/scf/';
+
         var mapAll;
         var map;
         var map2;
@@ -81,12 +83,12 @@
         map2 = new google.maps.Map(document.getElementById('map2'), mapOptions2);
         map3 = new google.maps.Map(document.getElementById('map3'), mapOptions3);
 
-     
+
         var addressesAll=[];
         var addresses1=[]
         var addresses2=[]
         var addresses3=[]
-        
+
         var array = @Html.Raw(Json.Encode(@ViewBag.canadianContributionLocations));
         for(var i = 0; i < array.length; i++) {
             //Don't add 0,0
@@ -105,7 +107,7 @@
 
             }
         }
-        
+
         var array3 = @Html.Raw(Json.Encode(@ViewBag.coloradoContributionLocations));
         for(var i = 0; i < array3.length; i++) {
             //Don't add 0,0
@@ -182,5 +184,128 @@
 
 
 
+        var infoWindowContent = [];
+        var infoWindowContent2 = [];
+        var infoWindowContent3 = [];
+        var infoWindow = new google.maps.InfoWindow();
+
+        var testList = @Html.Raw(Json.Encode(@ViewBag.canadianDonations));
+        for(var i = 0; i < testList.length; i++) {
+
+            //Create Info Window
+            var infoString = "<div class='scrollFix'><h4>" + testList[i].Title+"</h3><label>"+testList[i].DonatingCreditUnion.Name+"</label><br/>";
+            if(testList[i].Dollars >0){
+                infoString = infoString + "<label>Contributed $"+testList[i].Dollars+"</label><br/>";
+            }
+            if (testList[i].OnClockHours){
+                infoString = infoString + "<label>Contributed Hours: </label>"+testList[i].OnClockHours+"<br/>";
+            }
+            if(testList[i].OtherContributionsValue){
+                infoString = infoString + "<label>Other Contributions: </label>"+testList[i].OtherContributionsValue;
+            }
+            infoString = infoString +"</div>";
+
+            infoWindowContent[i]=infoString;
+
+
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(testList[i].Latitude, testList[i].Longitude),
+                map: map,
+                title: testList[i].title,
+                icon: iconBase + 'pin.png'
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker,i){
+                return function(){
+
+                    infoWindow.setContent(infoWindowContent[i]);
+                    infoWindow.open(map, marker);
+                    map.setCenter(marker.getPosition());
+                }
+            })(marker,i));
+        }
+
+
+
+        var testList2 = @Html.Raw(Json.Encode(@ViewBag.indianapolisDonations));
+        for(var i = 0; i < testList2.length; i++) {
+
+            //Create Info Window
+            var infoString = "<div class='scrollFix'><h4>" + testList2[i].Title+"</h3><label>"+testList2[i].DonatingCreditUnion.Name+"</label><br/>";
+            if(testList2[i].Dollars >0){
+                infoString = infoString + "<label>Contributed $"+testList2[i].Dollars+"</label><br/>";
+            }
+            if (testList2[i].OnClockHours){
+                infoString = infoString + "<label>Contributed Hours: </label>"+testList2[i].OnClockHours+"<br/>";
+            }
+            if(testList2[i].OtherContributionsValue){
+                infoString = infoString + "<label>Other Contributions: </label>"+testList2[i].OtherContributionsValue;
+            }
+            infoString = infoString +"</div>";
+
+            infoWindowContent2[i]=infoString;
+
+
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(testList2[i].Latitude, testList2[i].Longitude),
+                map: map2,
+                title: testList2[i].title
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker,i){
+                return function(){
+
+                    infoWindow.setContent(infoWindowContent2[i]);
+                    infoWindow.open(map2, marker);
+                    map2.setCenter(marker.getPosition());
+                }
+            })(marker,i));
+        }
+
+
+
+        var testList3 = @Html.Raw(Json.Encode(@ViewBag.coloradoDonations));
+        for(var i = 0; i < testList3.length; i++) {
+
+            //Create Info Window
+            var infoString = "<div class='scrollFix'><h4>" + testList3[i].Title+"</h3><label>"+testList3[i].DonatingCreditUnion.Name+"</label><br/>";
+            if(testList3[i].Dollars >0){
+                infoString = infoString + "<label>Contributed $"+testList3[i].Dollars+"</label><br/>";
+            }
+            if (testList3[i].OnClockHours){
+                infoString = infoString + "<label>Contributed Hours: </label>"+testList3[i].OnClockHours+"<br/>";
+            }
+            if(testList3[i].OtherContributionsValue){
+                infoString = infoString + "<label>Other Contributions: </label>"+testList3[i].OtherContributionsValue;
+            }
+            infoString = infoString +"</div>";
+
+            infoWindowContent3[i]=infoString;
+
+
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(testList3[i].Latitude, testList3[i].Longitude),
+                map: map3,
+                title: testList3[i].title
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker,i){
+                return function(){
+
+                    infoWindow.setContent(infoWindowContent3[i]);
+                    infoWindow.open(map3, marker);
+                    map3.setCenter(marker.getPosition());
+                }
+            })(marker,i));
+        }
+
+
+
     });
+
 </script>
+
+ 
+        
+
+

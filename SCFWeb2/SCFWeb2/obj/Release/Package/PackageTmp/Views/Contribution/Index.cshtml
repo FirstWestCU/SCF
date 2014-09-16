@@ -88,7 +88,7 @@
                                 <label>@donation.Title</label> 
                             </div>
                             <div class="col-md-6">
-                                <label>@donation.DonatingCreditUnion.Name</label>
+                                <label>@donation.DonatingCreditUnion.Name @donation.ID</label>
                             </div>
                         </div>
 
@@ -141,6 +141,43 @@ if (a%2==0){
         </div><!--row-->
     </div><!--/container-->
     <!--=== End Content Part ===-->
+
+
+
+
+<!--=== Parallax Counter ===-->
+<div class="parallax-counter parallaxBg margin-bottom-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-xs-6">
+                <div class="counters">
+                    <span class="counter">@ViewBag.totalContributions</span>
+                    <h4>Contributions</h4>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <div class="counters">
+                    <span class="counter">@ViewBag.totalContributedDollars</span>
+                    <h4>Contributed Dollar Value</h4>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <div class="counters">
+                    <span class="counter">@ViewBag.totalContributedHours</span>
+                    <h4>Contributed Hours</h4>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <div class="counters">
+                    <span class="counter">@ViewBag.totalCreditUnions</span>
+                    <h4>Credit Union Partners</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--=== End Parallax Counter ===-->
+
 
 
 <script type="text/javascript">

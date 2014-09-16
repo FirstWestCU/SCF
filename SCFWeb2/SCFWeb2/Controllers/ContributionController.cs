@@ -24,20 +24,40 @@ namespace SCFWeb2.Controllers
         public ActionResult Index()
         {
 
-            DateTime startDate = DateTime.Today;
-            startDate = startDate.AddYears(-2);
-
-            DateTime endDate = DateTime.Today;
-            endDate = endDate.AddYears(1);       
+            DateTime startDate = DateTime.Now.AddDays(-1000);
+            DateTime endDate = DateTime.Now.AddDays(1000);
             
             ViewBag.donationList = donationService.GetDonationsByDate(startDate, endDate);
             ViewBag.categoryService = new CategoryService.CategoryServiceSoapClient("CategoryServiceSoap");
             ViewBag.imagePath = Url.Content("~/Content/Files/");
 
             //Some temporary code - to delete test contributions - needs to be updated with ID
-           // donationService.DeleteDonation("ABC",27);
-          
+            donationService.DeleteDonation("ABC",57);
             //end temp code
+
+
+
+            int totalContributions = 0;
+            int totalContributedDollars = 0;
+            int totalContributedHours = 0;
+            int totalCreditUnions = 0;
+
+            //Get all Contribution details
+
+            DonationService.Donation[] donations = donationService.GetDonationsByDate(startDate, endDate);
+            foreach (DonationService.Donation donation in donations)
+            {
+                totalContributions++;
+                totalContributedDollars += donation.Dollars;
+                totalContributedHours += donation.OnClockHours;
+            }
+
+            totalCreditUnions = creditUnionService.GetAllCreditUnions().Length;
+
+            ViewBag.totalContributions = totalContributions;
+            ViewBag.totalContributedDollars = totalContributedDollars;
+            ViewBag.totalContributedHours = totalContributedHours;
+            ViewBag.totalCreditUnions = totalCreditUnions;
 
 
             return View();
