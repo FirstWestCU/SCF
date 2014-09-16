@@ -74,8 +74,8 @@
         };
 
         var mapOptions3 = {
-            zoom: 9,
-            center: new google.maps.LatLng(38.900, -104.820)
+            zoom: 8,
+            center: new google.maps.LatLng(39.300, -104.820)
         };
 
         mapAll = new google.maps.Map(document.getElementById('mapAll'), mapOptionsAll);
@@ -129,7 +129,7 @@
 
         if(longLatDataAll.length>0){
             var pointArray = new google.maps.MVCArray(longLatDataAll);
-            heatmap = new google.maps.visualization.HeatmapLayer({ data: pointArray});
+            heatmap = new google.maps.visualization.HeatmapLayer({ data: pointArray, radius:20});
             heatmap.setMap(mapAll);
         }
 
@@ -249,7 +249,8 @@
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(testList2[i].Latitude, testList2[i].Longitude),
                 map: map2,
-                title: testList2[i].title
+                title: testList2[i].title,
+                icon: iconBase + 'pin.png'
             });
 
             google.maps.event.addListener(marker, 'click', (function(marker,i){
@@ -286,7 +287,8 @@
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(testList3[i].Latitude, testList3[i].Longitude),
                 map: map3,
-                title: testList3[i].title
+                title: testList3[i].title,
+                icon: iconBase + 'pin.png'
             });
 
             google.maps.event.addListener(marker, 'click', (function(marker,i){
