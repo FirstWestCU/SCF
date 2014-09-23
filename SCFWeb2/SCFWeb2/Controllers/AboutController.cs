@@ -11,6 +11,7 @@ namespace SCFWeb2.Controllers
         // GET: About
         public ActionResult Index()
         {
+
             return View();
         }
     }

@@ -1,4 +1,5 @@
-﻿<!--=== Content Part ===-->
+﻿@model SCFWeb2.Models.RegistrationViewModel
+<!--=== Content Part ===-->
 <div class="container content">
 
 
@@ -9,49 +10,82 @@
 
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                <form id="registerForm" class="reg-page" action="/User/Registration" method="post">
+
+
+
+@using (Html.BeginForm("Registration", "User", FormMethod.Post)) { 
+
+     
                     <div class="reg-header">
                         <p>Already Signed Up? Click <a href="/User/Login" class="color-green">Sign In</a> to login your account.</p>
                     </div>
 
-                    <label>First Name</label>
-                    <input name="firstName" type="text" class="form-control margin-bottom-20">
+                    <fieldset>
 
-                    <label>Last Name</label>
-                    <input name="lastName" type="text" class="form-control margin-bottom-20">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            @Html.TextBoxFor(model => model.firstName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.firstName, null, new { @class = "help-block" })
+                        </div>
 
-                    <label>Email Address <span class="color-red">*</span></label>
-                    <input name="emailAddress" type="text" class="form-control margin-bottom-20">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            @Html.TextBoxFor(model => model.lastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.lastName, null, new { @class = "help-block" })
+                        </div>
 
-                    <label>Credit Union <span class="color-red">*</span></label>
-                    <select name="creditUnionId" class="form-control margin-bottom-20">
-                        @foreach (SCFWeb2.CreditUnionService.CreditUnion creditUnion in ViewBag.creditUnionList){
-                            <option value="@creditUnion.ID">@creditUnion.Name</option>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            @Html.TextBoxFor(model => model.emailAddress, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.emailAddress, null, new { @class = "help-block" })
+                          </div>
 
+                        <div class="form-group">
+                            <label>Credit Union <span class="color-red">*</span></label>
+          
+                           @Html.DropDownListFor(model => model.creditUnionId, (SelectList)ViewBag.creditUnionList, new { @class = "form-control " })
+                             
+
+                        </div>
+
+@{
+    string collapseClass = "collapse";
+    if (Model.creditUnionId == -1)
+    {
+            collapseClass = "";
+    }
+
+                        <div id="creditUnionFormGroup" class="form-group @collapseClass">
+                            <label>Credit Union Name<span class="color-red">*</span></label>
+                            @Html.TextBoxFor(model => model.creditUnionName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.creditUnionName, null, new { @class = "help-block" })
+                        </div>
 }
 
-                    </select>
-
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label>Password <span class="color-red">*</span></label>
-                            <input type="password" name="password" class="form-control margin-bottom-20">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label>Password <span class="color-red">*</span></label>
+                                @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.password, null, new { @class = "help-block" })
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Confirm Password <span class="color-red">*</span></label>
+                                @Html.PasswordFor(model => model.passwordConfirm, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.passwordConfirm, null, new { @class = "help-block" })
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <label>Confirm Password <span class="color-red">*</span></label>
-                            <input type="password" name="passwordConfirm" class="form-control margin-bottom-20">
-                        </div>
-                    </div>
 
-                    <hr>
+                            <hr>
 
-                    <div class="row">
+                            <div class="row">
 
-                        <div class="col-lg-6 text-right">
-                            <button class="btn-u" type="submit">Register</button>
-                        </div>
-                    </div>
-                </form>
+                                <div class="col-lg-6 text-right">
+                                    <button class="btn-u" type="submit">Register</button>
+
+                                </div>
+                            </div>
+                    </fieldset>
+}
             </div>
         </div>
     </div><!--/container-->
@@ -63,51 +97,57 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-
-
-
-        //Does not need to be document on
-        /*
-        $(document).on('submit', '#registerForm', function () {
-
-            $.ajax({
-                type: $(this).attr('method'),
-                url: $(this).attr('action'),
-                data: JSON.stringify($(this).serializeObject()),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (msg) {
-                    alert(msg.d);
-                    if (msg.d == "success") {
-                        window.location.href=""
-                    } else {
-
-                    }
-                }
-
-            });
-            return false;
-        });
-
-
-
-    //TODO - move to script utilities
-    $.fn.serializeObject = function () {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function () {
-            if (o[this.name]) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
+        $("#creditUnionId").change(function () {
+            // alert( "Handler for .change() called." );
+            if ($("#creditUnionId").val() == "-1") {
+                $("#creditUnionFormGroup").show();
+            }else{
+                $("#creditUnionFormGroup").hide();
             }
         });
-        return o;
-    };
-    */
+
+        $(function () {
+            // any validation summary items should be encapsulated by a class alert and alert-danger
+            $('.validation-summary-errors').each(function () {
+                $(this).addClass('alert');
+                $(this).addClass('alert-danger');
+            });
+
+            // update validation fields on submission of form
+            $('form').submit(function () {
+                if ($(this).valid()) {
+                    $(this).find('div.control-group').each(function () {
+                        if ($(this).find('span.field-validation-error').length == 0) {
+                            $(this).removeClass('has-error');
+                            $(this).addClass('has-success');
+                        }
+                    });
+                }
+                else {
+                    $(this).find('div.control-group').each(function () {
+                        if ($(this).find('span.field-validation-error').length > 0) {
+                            $(this).removeClass('has-success');
+                            $(this).addClass('has-error');
+                        }
+                    });
+                    $('.validation-summary-errors').each(function () {
+                        if ($(this).hasClass('alert-danger') == false) {
+                            $(this).addClass('alert');
+                            $(this).addClass('alert-danger');
+                        }
+                    });
+                }
+            });
+
+            // check each form-group for errors on ready
+            $('form').each(function () {
+                $(this).find('div.form-group').each(function () {
+                    if ($(this).find('span.field-validation-error').length > 0) {
+                        $(this).addClass('has-error');
+                    }
+                });
+            });
+        });
 
 
 });

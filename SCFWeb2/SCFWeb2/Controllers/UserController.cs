@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SCFWeb2.Models;
+
 
 namespace SCFWeb2.Controllers
 {
@@ -28,61 +30,63 @@ namespace SCFWeb2.Controllers
         public ActionResult Registration()
         {
 
+            //Test code for deleting credit unions
+           
+
           
-
+            //A bit of complicated code to ensure 'other' is a viable final option in the list
             ViewBag.categoryList = categoryService.GetDonationCategories();
-            ViewBag.creditUnionList = creditUnionService.GetAllCreditUnions();
+            List<SelectListItem> creditUnionSelectList = new SelectList(creditUnionService.GetAllCreditUnions(), "ID", "Name").ToList(); 
+            SelectListItem otherSelectItem = new SelectListItem();
+            otherSelectItem. Value = "-1";
+            otherSelectItem.Text ="Other";
+            creditUnionSelectList.Add(otherSelectItem);
+            ViewBag.creditUnionList = new SelectList(creditUnionSelectList,"Value","Text");
 
-            return View();
+            RegistrationViewModel rv = new RegistrationViewModel();
+
+            return View(rv);
         }
 
 
         [HttpPost]
-        public ActionResult Registration(string firstName, string lastName, string emailAddress, string creditUnionId, string password, string passwordConfirm)
+        //public ActionResult Registration(string firstName, string lastName, string emailAddress, string creditUnionId, string password, string passwordConfirm)
+        public ActionResult Registration(RegistrationViewModel registration)
         {
 
-           List<string> errorMessages = new List<string>();
-
-
-            //Check mandatories
-            if (String.IsNullOrEmpty(emailAddress))
-            {
-                errorMessages.Add("Email Address is a required field");
+            if (registration.creditUnionId>=0){
+                ModelState.Remove("creditUnionName");
             }
 
 
-            if (String.IsNullOrEmpty(password))
-            {
-                   errorMessages.Add("Password is a required field");
-            }
+            if (!ModelState.IsValid){
 
 
-
-
-            if (errorMessages.Count >0){
-                ViewBag.errorMessages = errorMessages;
+                //A bit of complicated code to ensure 'other' is a viable final option in the list
                 ViewBag.categoryList = categoryService.GetDonationCategories();
-                ViewBag.creditUnionList = creditUnionService.GetAllCreditUnions();
-                return View();
+                List<SelectListItem> creditUnionSelectList = new SelectList(creditUnionService.GetAllCreditUnions(), "ID", "Name").ToList();
+                SelectListItem otherSelectItem = new SelectListItem();
+                otherSelectItem.Value = "other";
+                otherSelectItem.Text = "Other";
+                creditUnionSelectList.Add(otherSelectItem);
+                ViewBag.creditUnionList = new SelectList(creditUnionSelectList, "Value", "Text");
 
-            //Next level of validation
-            }else if (password !=passwordConfirm ){
-                    errorMessages.Add("The Password fields did not match.");
-                    ViewBag.errorMessages = errorMessages;
-                    ViewBag.categoryList = categoryService.GetDonationCategories();
-                    ViewBag.creditUnionList = creditUnionService.GetAllCreditUnions();
-                    return View();
-                
-            //Else hunky dory
-            }else{
+                return View(registration);
+            }
+
+
+            //Test if we need to add a new CU
+            if (registration.creditUnionId<0){
+                creditUnionService.CreateCreditUnion("ABC", registration.creditUnionName, "","",50,50);
+            }
 
                 //Need the voting windows
                 UserService.UserServiceSoap userService = new UserService.UserServiceSoapClient("UserServiceSoap");
-                userService.CreateUser(firstName + " " + lastName, emailAddress, password,Convert.ToInt32(creditUnionId));
+                userService.CreateUser(registration.firstName + " " + registration.lastName, registration.emailAddress, registration.password, Convert.ToInt32(registration.creditUnionId));
 
                 TempData["successMessage"] = "You have successfully registered and may log in.";
-                return Redirect("Login");
-            }
+                return RedirectToAction("Login");
+            //}
         }
 
 
