@@ -14,7 +14,7 @@
             <div class="headline">
                 <h3>North America</h3>
             </div>
-            <div id="mapAll" class="map margin-bottom-50">
+            <div id="mapAll" class="map largeMap margin-bottom-50">
             </div>
             <!-- End Basic Map -->
 
@@ -60,7 +60,7 @@
 
         var mapOptionsAll = {
             zoom: 4,
-            center: new google.maps.LatLng(49.100, -122.800)
+            center: new google.maps.LatLng(48.100, -100.800)
         };
 
         var mapOptions = {
@@ -274,10 +274,10 @@
                 infoString = infoString + "<label>Contributed $"+testList3[i].Dollars+"</label><br/>";
             }
             if (testList3[i].OnClockHours){
-                infoString = infoString + "<label>Contributed Hours: </label>"+testList3[i].OnClockHours+"<br/>";
+                infoString = infoString + "<label>Contributed Hours: "+testList3[i].OnClockHours+"</label><br/>";
             }
             if(testList3[i].OtherContributionsValue){
-                infoString = infoString + "<label>Other Contributions: </label>"+testList3[i].OtherContributionsValue;
+                infoString = infoString + "<label>Other Contributions: "+testList3[i].OtherContributionsValue + "</label>";
             }
             infoString = infoString +"</div>";
 

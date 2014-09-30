@@ -139,6 +139,39 @@ if (a%2==0){
 
 
         </div><!--row-->
+
+
+@{
+
+
+     <div class="text-center">
+         <ul class="pagination">
+
+@if (ViewBag.currentPageNumber != 1) { 
+             <li><a href="/Contribution">«</a></li>
+}         
+    
+@for (int i = 0; i < ViewBag.TotalPageCount; i++)
+{
+    string activeClass = "";
+    if (ViewBag.currentPageNumber == (i+1))
+    {
+        activeClass = "active";
+    }
+    <li class="@activeClass"><a href="/Contribution/Index/@(i+1)">@(i + 1)</a></li>
+}
+
+@if (ViewBag.currentPageNumber != ViewBag.TotalPageCount)
+{
+    <li><a href="/Contribution/Index/@ViewBag.TotalPagecount">»</a></li>
+}  
+
+
+          
+</ul>
+     </div>
+}
+
     </div><!--/container-->
     <!--=== End Content Part ===-->
 

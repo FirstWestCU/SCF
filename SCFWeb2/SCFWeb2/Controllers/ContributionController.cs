@@ -21,18 +21,37 @@ namespace SCFWeb2.Controllers
 
         public HttpPostedFileBase UploadedFile { get; set; }
 
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
 
             DateTime startDate = DateTime.Now.AddDays(-1000);
             DateTime endDate = DateTime.Now.AddDays(1000);
+
+            int countPerPage = 12;
+            int pageIndex = 1;
             
-            ViewBag.donationList = donationService.GetDonationsByDate(startDate, endDate);
+//            ViewBag.donationList = donationService.GetDonationsByDate(startDate, endDate);
+
+            //shorten number of donations
+            DonationService.Donation[] donationArray = donationService.GetDonationsByDate(startDate, endDate);
+            ViewBag.totalPageCount = (donationArray.Length + 12 - 1) / 12;
+
+
+            if(id != null){
+                pageIndex = id.Value;
+            }
+
+            ViewBag.currentPageNumber = pageIndex;
+
+
+            ViewBag.donationList = donationArray.Skip(countPerPage * (pageIndex - 1)).Take(countPerPage).ToArray();
+
+
             ViewBag.categoryService = new CategoryService.CategoryServiceSoapClient("CategoryServiceSoap");
             ViewBag.imagePath = Url.Content("~/Content/Files/");
 
             //Some temporary code - to delete test contributions - needs to be updated with ID
-            donationService.DeleteDonation("ABC",57);
+           // donationService.DeleteDonation("ABC",57);
             //end temp code
 
 
